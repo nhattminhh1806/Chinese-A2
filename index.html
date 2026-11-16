@@ -1,0 +1,1787 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thẻ từ TOCFL</title>
+<meta name="description" content="Luyện từ vựng TOCFL Level 1 và Level 2 bằng thẻ từ, trắc nghiệm, gõ chữ Hán và phát âm.">
+<meta name="theme-color" content="#F2F4F9">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Thẻ từ TOCFL">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='10' fill='%23fff' stroke='%232446C4' stroke-width='4'/%3E%3Cpath d='M32 6v52M6 32h52' stroke='%23AEBCEE' stroke-width='2' stroke-dasharray='4 4'/%3E%3Ctext x='32' y='45' font-size='36' text-anchor='middle' fill='%23131A2E'%3E字%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F4F9; --card:#FFFFFF; --ink:#131A2E; --muted:#5A6480; --line:#D9DEEC;
+  --blue:#2446C4; --blue-deep:#1A3399; --blue-soft:#E7ECFB; --grid:#8FA2E6; --grid-dash:#B9C5F0;
+  --ok:#1B8554; --ok-soft:#E2F3E9; --bad:#C2392F; --bad-soft:#FBE8E5;
+  --ui:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --han:"LXGW WenKai TC","BiauKai","DFKai-SB","Kaiti TC","PingFang TC","Noto Sans TC","Microsoft JhengHei","Heiti TC",sans-serif;
+  --r-sm:8px; --r-md:14px; --r-lg:20px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+button:disabled{cursor:default}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+[hidden]{display:none!important}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px calc(32px + env(safe-area-inset-bottom))}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.han{font-family:var(--han)}
+
+/* ---------- ô chữ điền (田字格) ---------- */
+.zis{display:grid;grid-template-columns:repeat(var(--n),minmax(0,var(--max,104px)));gap:6px;justify-content:center;width:100%}
+.zi{aspect-ratio:1;container-type:inline-size;display:grid;place-items:center;border:1.5px solid var(--grid);border-radius:6px;
+  background:
+    repeating-linear-gradient(90deg,var(--grid-dash) 0 4px,transparent 4px 8px) center/100% 1px no-repeat,
+    repeating-linear-gradient(0deg,var(--grid-dash) 0 4px,transparent 4px 8px) center/1px 100% no-repeat,
+    #fff}
+.zi>span{font-family:var(--han);font-size:56px;font-size:72cqw;line-height:1;color:var(--ink)}
+.zis-md{--max:78px}
+.zis-sm{--max:44px;gap:4px}
+.zis-sm .zi{border-width:1px;border-radius:4px}
+
+/* ---------- trang chủ ---------- */
+.home-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:28px 0 20px}
+.brand .zis{justify-content:start;margin-bottom:12px}
+.brand h1{margin:0;font-size:26px;line-height:1.15;font-weight:700;letter-spacing:-.01em}
+.brand p{margin:6px 0 0;color:var(--muted);font-size:14.5px}
+.iconbtn{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.iconbtn:active{background:var(--blue-soft)}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4px;padding:4px;background:#E4E8F2;border-radius:var(--r-md)}
+.seg button{border:0;background:transparent;border-radius:10px;padding:10px 8px;font-weight:600;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px}
+.seg button[aria-selected="true"],.seg button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(19,26,46,.12)}
+.seg small{display:block;font-weight:500;font-size:12.5px;color:var(--muted)}
+.lvl button{flex-direction:column;gap:0;padding:8px}
+.lvl .han{font-size:19px;line-height:1.3}
+.resume{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin-top:14px;padding:14px 16px;border:0;border-radius:var(--r-md);background:var(--blue);color:#fff;text-align:left}
+.resume b{display:block;font-weight:600}
+.resume span{font-size:13.5px;opacity:.85}
+.resume:active{background:var(--blue-deep)}
+.lvl-sum{display:flex;justify-content:space-between;align-items:baseline;margin:22px 0 8px;font-size:14px;color:var(--muted)}
+.lvl-sum b{color:var(--ink);font-weight:600}
+.bar{height:6px;border-radius:3px;background:#E0E5F1;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--blue);border-radius:3px;transition:width .3s}
+.bar.ok i{background:var(--ok)}
+.topics{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+.topic{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px 16px}
+.topic-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.topic-h h2{margin:0;font-size:16.5px;font-weight:600}
+.topic-h .han{display:block;font-size:14.5px;color:var(--muted);font-weight:400}
+.topic-h em{font-style:normal;font-size:13.5px;color:var(--muted);white-space:nowrap}
+.topic .bar{margin:10px 0 12px}
+.lessons{display:flex;flex-wrap:wrap;gap:8px}
+.lesson{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 14px 8px 10px;font-weight:600;font-size:14.5px;min-height:40px}
+.lesson small{font-weight:500;color:var(--muted);font-size:13px}
+.lesson .dot{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--grid);display:grid;place-items:center;flex:none;background:#fff}
+.lesson.part .dot{background:conic-gradient(var(--blue) var(--p),#fff 0)}
+.lesson.done{border-color:#B9DEC9;background:var(--ok-soft)}
+.lesson.done .dot{background:var(--ok);border-color:var(--ok);color:#fff}
+.lesson.done .dot .ico{width:12px;height:12px;stroke-width:3}
+.lesson:active{border-color:var(--blue)}
+.foot{margin:26px 0 0;color:var(--muted);font-size:13px;text-align:center}
+
+/* ---------- màn hình bài học ---------- */
+.lhead{position:sticky;top:0;z-index:5;background:var(--paper);margin:0 -16px;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line)}
+.back{display:flex;align-items:center;gap:4px;border:0;background:transparent;padding:10px 10px 10px 0;color:var(--muted);font-weight:500;min-height:44px}
+.lmeta{text-align:right;min-width:0}
+.lmeta small{display:block;color:var(--blue);font-weight:600;font-size:12.5px}
+.lmeta b{display:block;font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tabs{margin-top:14px}
+.tabs .ico{width:18px;height:18px}
+.tabs button[aria-selected="true"]{background:var(--blue);color:#fff;box-shadow:none}
+
+.steprow{display:flex;align-items:flex-start;gap:8px;margin-top:16px}
+.steps{flex:1;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.steps::before{content:"";position:absolute;left:12.5%;right:12.5%;top:15px;height:2px;background:var(--line)}
+.steps button{position:relative;width:100%;border:0;background:transparent;padding:0 2px;display:grid;justify-items:center;gap:5px;font-size:12px;font-weight:500;color:var(--muted);min-height:54px;white-space:nowrap;letter-spacing:-.01em}
+.steps .n{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:2px solid var(--line);font-weight:700;font-size:14px;color:var(--muted)}
+.steps .is-done .n{border-color:var(--ok);background:var(--ok-soft);color:var(--ok)}
+.steps .is-done .n .ico{width:16px;height:16px;stroke-width:2.6}
+.steps .is-cur .n{border-color:var(--blue);background:var(--blue);color:#fff}
+.steps .is-cur{color:var(--ink);font-weight:600}
+.steps .is-off{opacity:.4}
+.where{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:14px 0 6px;font-size:14px;color:var(--muted)}
+.where b{color:var(--ink);font-weight:600}
+.wnav{display:flex;align-items:center;gap:2px}
+.wnav button{width:36px;height:36px;border:0;background:transparent;border-radius:50%;display:grid;place-items:center;color:var(--muted)}
+.wnav button:active{background:var(--blue-soft)}
+
+.card{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 18px;box-shadow:0 2px 0 #E3E7F2}
+.card.flip{animation:flip .28s ease-out}
+@keyframes flip{from{transform:perspective(900px) rotateX(-70deg);opacity:.2}to{transform:none;opacity:1}}
+.fc{position:relative;min-height:340px;padding-top:62px;padding-bottom:30px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;gap:10px;-webkit-tap-highlight-color:transparent}
+.spk{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:1px solid #C9D3F5;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center}
+.spk:active{background:#D6DEF8}
+.pinyin{font-size:21px;font-weight:500;color:var(--blue);letter-spacing:.02em}
+.alt{font-size:14px;color:var(--muted)}
+.alt .han{font-size:17px;color:var(--ink)}
+.hint{color:var(--muted);font-size:14.5px}
+.mean{font-size:27px;font-weight:700;line-height:1.25;letter-spacing:-.01em;max-width:22ch;text-wrap:balance}
+.mean::first-letter{text-transform:uppercase}
+.mean.long{font-size:20px;font-weight:600;max-width:28ch}
+.pos{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:var(--muted)}
+.pos code{font-family:var(--ui);font-weight:600;font-size:12.5px;color:var(--blue-deep);background:var(--blue-soft);padding:2px 7px;border-radius:5px}
+.ex{width:100%;border-top:1px solid var(--line);padding-top:14px;margin-top:6px;display:grid;justify-items:center;gap:6px}
+.ex .han{font-size:22px;line-height:1.45}
+.ex mark{background:none;color:var(--blue);border-bottom:2px solid var(--grid-dash)}
+.ex .exvi{font-size:15px;color:var(--muted);max-width:34ch}
+.ex .pill{margin-top:4px}
+.row{display:flex;gap:10px;width:100%;margin-top:14px}
+.btn{flex:1;border:0;border-radius:12px;padding:13px 16px;font-weight:600;min-height:50px;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:#fff}
+.btn:active{background:var(--blue-deep)}
+.btn.ok{background:var(--ok)}
+.btn.soft{background:var(--ok-soft);color:var(--ok);border:1px solid #B9DEC9}
+.btn.ghost{background:var(--card);color:var(--muted);border:1px solid var(--line);flex:0 0 auto}
+.btn.line{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.btn:disabled{opacity:.5}
+
+.q{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.opts{display:grid;gap:10px;width:100%;margin-top:8px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:1.5px solid var(--line);background:var(--card);border-radius:12px;padding:13px 14px;min-height:54px;font-size:15.5px}
+.opt i{font-style:normal;font-weight:700;font-size:13px;width:26px;height:26px;border-radius:50%;background:var(--paper);display:grid;place-items:center;flex:none;color:var(--muted)}
+.opt:active{border-color:var(--blue)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.right i{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.opt.wrong i{background:var(--bad);color:#fff}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid #C9D3F5;background:var(--blue-soft);color:var(--blue);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:500;min-height:36px}
+.pill .ico{width:16px;height:16px}
+.field{width:100%;margin-top:6px;border:2px solid var(--line);border-radius:12px;background:#F8F9FC;padding:14px;text-align:center;font-family:var(--han);font-size:32px;line-height:1.3;color:var(--ink);min-height:76px}
+.field::placeholder{font-family:var(--ui);font-size:20px;color:#9AA3BA}
+.field:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px var(--blue-soft)}
+.field.right{border-color:var(--ok);background:var(--ok-soft)}
+.field.wrong{border-color:var(--bad);animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.msg{min-height:22px;font-size:14px;color:var(--muted)}
+.msg.ok{color:var(--ok);font-weight:600}
+.msg.bad{color:var(--bad)}
+.voice{display:flex;align-items:center;justify-content:center;gap:16px;margin:6px 0 2px}
+.voice .spk{position:static;width:56px;height:56px}
+.mic{width:84px;height:84px;border-radius:50%;border:0;background:var(--blue);color:#fff;display:grid;place-items:center;box-shadow:0 6px 0 var(--blue-deep)}
+.mic .ico{width:34px;height:34px}
+.mic:active{transform:translateY(3px);box-shadow:0 3px 0 var(--blue-deep)}
+.mic.live{background:var(--bad);box-shadow:0 6px 0 #8F2A22;animation:pulse 1.1s infinite}
+@keyframes pulse{50%{box-shadow:0 6px 0 #8F2A22,0 0 0 12px rgba(194,57,47,.14)}}
+.under{margin:14px 4px 0;text-align:center;color:var(--muted);font-size:13.5px}
+
+.fin{text-align:center;display:grid;gap:10px;justify-items:center}
+.fin h2{margin:6px 0 0;font-size:22px}
+.fin p{margin:0;color:var(--muted)}
+.fin .row{flex-direction:column}
+
+/* ---------- xem từ ---------- */
+.list{list-style:none;margin:14px 0 0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.list li+li{border-top:1px solid var(--line)}
+.wrow{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;width:100%;border:0;background:transparent;text-align:left;padding:12px 14px}
+.wrow:active{background:var(--blue-soft)}
+.wrow .w{font-family:var(--han);font-size:26px;line-height:1.2;min-width:2.2em}
+.wrow .p{display:block;color:var(--blue);font-size:14px;font-weight:500}
+.wrow .m{display:block;font-size:15px}
+.wrow .t{display:block;font-size:12.5px;color:var(--muted)}
+.wrow .st{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--grid)}
+.wrow .st.half{background:var(--grid-dash)}
+.wrow .st.full{background:var(--ok);border-color:var(--ok)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin:10px 4px 0;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--grid);display:inline-block}
+
+/* ---------- chơi ghép thẻ ---------- */
+.ghead{display:flex;justify-content:space-between;align-items:baseline;margin:16px 2px 0;font-size:14px;color:var(--muted)}
+.ghead b{color:var(--ink);font-variant-numeric:tabular-nums}
+.board{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:10px;margin-top:10px}
+.col{display:grid;gap:10px;align-content:start}
+.tile{border:1.5px solid var(--line);background:var(--card);border-radius:12px;min-height:64px;padding:8px 10px;display:grid;place-items:center;text-align:center;font-size:14.5px;line-height:1.3;box-shadow:0 2px 0 #E3E7F2}
+.tile.h{font-family:var(--han);font-size:26px}
+.tile.sel{border-color:var(--blue);background:var(--blue-soft)}
+.tile.gone{visibility:hidden}
+.tile.no{border-color:var(--bad);background:var(--bad-soft);animation:shake .3s}
+
+/* ---------- cài đặt ---------- */
+.sheet{position:fixed;inset:0;z-index:20;background:rgba(19,26,46,.45);display:flex;align-items:flex-end;justify-content:center}
+.sheet-in{width:100%;max-width:560px;max-height:92vh;overflow:auto;background:var(--card);border-radius:22px 22px 0 0;padding:18px 18px calc(22px + env(safe-area-inset-bottom));animation:up .22s ease-out}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.sheet h2{margin:0;font-size:19px}
+.sheet-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.set{padding:14px 0;border-top:1px solid var(--line)}
+.set>b{display:block;font-weight:600;margin-bottom:4px}
+.set p{margin:0 0 10px;font-size:13.5px;color:var(--muted)}
+.sw{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 0;min-height:44px}
+.sw span small{display:block;color:var(--muted);font-size:13px}
+.sw input{appearance:none;-webkit-appearance:none;width:48px;height:28px;border-radius:14px;background:#CCD2E2;position:relative;flex:none;margin:0;cursor:pointer;transition:background .15s}
+.sw input::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .15s}
+.sw input:checked{background:var(--blue)}
+.sw input:checked::after{transform:translateX(20px)}
+.sw input:disabled{opacity:.5}
+.danger{border:1px solid #EBC3BE;background:var(--bad-soft);color:var(--bad);border-radius:12px;padding:12px 14px;font-weight:600;width:100%;min-height:46px}
+
+@media (max-width:360px){
+  .steps button{font-size:11px}
+  .mean{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div id="app" class="wrap"></div>
+<div id="sheet"></div>
+<noscript><p style="padding:24px">Trang này cần bật JavaScript để chạy.</p></noscript>
+
+<script>
+/* =====================================================================
+   DỮ LIỆU TỪ VỰNG
+   Mỗi từ là một mảng: [chữ Hán, pinyin, từ loại, nghĩa tiếng Việt, câu ví dụ (tuỳ chọn), nghĩa câu ví dụ (tuỳ chọn)]
+   Muốn sửa nghĩa hay thêm câu ví dụ thì sửa trực tiếp trong khối này.
+   ===================================================================== */
+const LEVELS = [
+{"id":1,"zh":"入門級","name":"Level 1","topics":[
+  {"zh":"個人資料","vi":"Thông tin cá nhân","words":[
+    ["零","líng","N","số không","我的電話號碼裡有三個零。","Số điện thoại của tôi có ba số không."],
+    ["爺爺","yéye","N","ông nội","我爺爺今年八十歲了。","Ông nội tôi năm nay tám mươi tuổi rồi."],
+    ["奶奶","nǎinai","N","bà nội","奶奶做的菜很好吃。","Món bà nội nấu rất ngon."],
+    ["家庭","jiātíng","N","gia đình","他有一個快樂的家庭。","Anh ấy có một gia đình vui vẻ."],
+    ["別人","biérén","N","người khác","不要拿別人的東西。","Đừng lấy đồ của người khác."],
+    ["大人","dàrén","N","người lớn","大人和小孩都喜歡這部電影。","Người lớn và trẻ con đều thích bộ phim này."],
+    ["老人","lǎorén","N","người già","那位老人每天早上去公園。","Cụ già ấy sáng nào cũng ra công viên."],
+    ["年輕","niánqīng","Vs","trẻ, trẻ tuổi","我的老師很年輕。","Thầy giáo của tôi rất trẻ."],
+    ["男生","nánshēng","N","con trai, nam sinh","我們班有十個男生。","Lớp chúng tôi có mười bạn nam."],
+    ["女生","nǚshēng","N","con gái, nữ sinh","那個女生是我妹妹。","Bạn nữ đó là em gái tôi."],
+    ["號碼","hàomǎ","N","số, mã số (điện thoại, số nhà)","請給我你的電話號碼。","Cho tôi xin số điện thoại của bạn."],
+    ["在","zài","Adv","đang (làm gì đó)","他在看電視。","Anh ấy đang xem tivi."],
+    ["哪","na","Ptc","trợ từ cuối câu (biến âm của 啊)","天哪，這麼貴！","Trời ơi, đắt thế!"],
+    ["地址","dìzhǐ","N","địa chỉ","請寫下你家的地址。","Hãy viết địa chỉ nhà bạn ra."],
+    ["市","shì","N","thành phố","我住在台北市。","Tôi sống ở thành phố Đài Bắc."],
+    ["名","míng","M","lượng từ chỉ người; hạng (第一名)","我們班有二十名學生。","Lớp chúng tôi có hai mươi học sinh."],
+    ["城市/城","chéngshì/chéng","N","thành phố, thành thị","台北是一個很大的城市。","Đài Bắc là một thành phố rất lớn."],
+    ["街","jiē","N","đường phố, phố","這條街上有很多商店。","Trên con phố này có rất nhiều cửa hàng."],
+    ["電子郵件","diànzǐyóujiàn","N","thư điện tử, email","我每天都看電子郵件。","Ngày nào tôi cũng xem email."],
+    ["禮拜","lǐbài","N","tuần; thứ (trong tuần)","我下個禮拜要去日本。","Tuần sau tôi sẽ đi Nhật."],
+    ["從前","cóngqián","N","ngày xưa, trước đây","從前這裡有一條河。","Ngày xưa ở đây có một con sông."],
+    ["剛剛/剛","gānggāng/gāng","Adv","vừa mới","他剛剛出去了。","Anh ấy vừa mới đi ra ngoài."],
+    ["一會兒/一會","yīhuǐr/yīhuǐ","N","một lát, một chốc","請你等一會兒。","Bạn chờ một lát nhé."],
+    ["結婚","jiéhūn","Vp-sep","kết hôn, cưới","他們明年要結婚。","Sang năm họ sẽ kết hôn."],
+    ["春天/春","chūntiān/chūn","N","mùa xuân","春天的花很漂亮。","Hoa mùa xuân rất đẹp."],
+    ["夏天/夏","xiàtiān/xià","N","mùa hè","台灣的夏天很熱。","Mùa hè ở Đài Loan rất nóng."],
+    ["秋天/秋","qiūtiān/qiū","N","mùa thu","秋天的天氣很舒服。","Thời tiết mùa thu rất dễ chịu."],
+    ["冬天/冬","dōngtiān/dōng","N","mùa đông","這裡的冬天不太冷。","Mùa đông ở đây không lạnh lắm."],
+    ["笑","xiào","Vi","cười","她笑的時候很好看。","Lúc cười cô ấy rất đẹp."],
+    ["哭","kū","Vi","khóc","小孩子為什麼哭了？","Sao em bé lại khóc?"],
+    ["高興","gāoxìng","Vs","vui, vui mừng","很高興認識你。","Rất vui được biết bạn."],
+    ["緊張","jǐnzhāng","Vs","căng thẳng, hồi hộp","考試以前我很緊張。","Trước khi thi tôi rất căng thẳng."],
+    ["可愛","kěài","Vs","dễ thương, đáng yêu","你的小狗真可愛。","Con cún của bạn dễ thương quá."],
+    ["生氣","shēngqì","Vs-sep","tức giận","媽媽生氣了。","Mẹ giận rồi."],
+    ["難過","nánguò","Vs","buồn, buồn bã","聽到這件事，我很難過。","Nghe chuyện này tôi rất buồn."],
+    ["聰明","cōngmíng","Vs","thông minh","這個孩子很聰明。","Đứa bé này rất thông minh."],
+    ["相信","xiāngxìn","Vst","tin, tin tưởng","我相信你說的話。","Tôi tin lời bạn nói."],
+    ["經驗","jīngyàn","N","kinh nghiệm","他有很多工作經驗。","Anh ấy có nhiều kinh nghiệm làm việc."],
+    ["辛苦","xīnkǔ","Vs","vất vả, cực khổ","爸爸每天工作很辛苦。","Bố ngày nào cũng làm việc rất vất vả."],
+    ["願意","yuànyì","Vaux","sẵn lòng, bằng lòng","我願意幫你。","Tôi sẵn lòng giúp bạn."],
+    ["習慣","xíguàn","N / Vs","thói quen; quen với","我習慣早睡早起。","Tôi quen ngủ sớm dậy sớm."],
+    ["當然","dāngrán","Adv","đương nhiên, tất nhiên","我當然想去。","Tất nhiên là tôi muốn đi."],
+    ["更","gèng","Adv","càng, hơn nữa","今天比昨天更冷。","Hôm nay còn lạnh hơn hôm qua."]
+  ]},
+  {"zh":"工作","vi":"Công việc","words":[
+    ["醫院","yīyuàn","N","bệnh viện","我媽媽在醫院工作。","Mẹ tôi làm việc ở bệnh viện."],
+    ["公司","gōngsī","N","công ty","這家公司很有名。","Công ty này rất nổi tiếng."],
+    ["辦公室","bàngōngshì","N","văn phòng","老師在辦公室裡。","Thầy giáo đang ở trong văn phòng."],
+    ["工人","gōngrén","N","công nhân","那些工人在蓋房子。","Những người công nhân kia đang xây nhà."],
+    ["護士","hùshì","N","y tá","我姐姐是護士。","Chị tôi là y tá."],
+    ["司機","sījī","N","tài xế","公車司機很客氣。","Bác tài xế xe buýt rất lịch sự."],
+    ["老闆/老板","lǎobǎn","N","ông chủ, sếp","我們老闆人很好。","Sếp của chúng tôi rất tốt."],
+    ["上班","shàngbān","V-sep","đi làm","我每天八點上班。","Ngày nào tôi cũng đi làm lúc tám giờ."],
+    ["下班","xiàbān","V-sep","tan làm","你幾點下班？","Mấy giờ bạn tan làm?"],
+    ["能力","nénglì","N","năng lực","他的工作能力很好。","Năng lực làm việc của anh ấy rất tốt."],
+    ["努力","nǔlì","Vs","cố gắng, nỗ lực","她學中文很努力。","Cô ấy học tiếng Trung rất cố gắng."],
+    ["準備","zhǔnbèi","V","chuẩn bị","我在準備明天的考試。","Tôi đang chuẩn bị cho bài thi ngày mai."],
+    ["打算","dǎsuàn","Vaux","dự định, định","我打算明年去台灣。","Tôi định sang năm đi Đài Loan."],
+    ["計畫/計劃","jìhuà","V / N","kế hoạch; lên kế hoạch","你週末有什麼計畫？","Cuối tuần bạn có kế hoạch gì?"],
+    ["機會","jīhuì","N","cơ hội","這是一個很好的機會。","Đây là một cơ hội rất tốt."],
+    ["如果","rúguǒ","Conj","nếu","如果下雨，我就不去了。","Nếu trời mưa thì tôi không đi nữa."]
+  ]},
+  {"zh":"教育","vi":"Giáo dục","words":[
+    ["小學","xiǎoxué","N","trường tiểu học","我弟弟上小學三年級。","Em trai tôi học lớp ba tiểu học."],
+    ["高中","gāozhōng","N","trường trung học phổ thông (cấp 3)","我妹妹明年上高中。","Sang năm em gái tôi lên cấp ba."],
+    ["上學","shàngxué","V-sep","đi học","孩子們七點去上學。","Bọn trẻ đi học lúc bảy giờ."],
+    ["開學","kāixué","Vp","khai giảng, vào học kỳ mới","我們學校九月開學。","Trường chúng tôi khai giảng vào tháng Chín."],
+    ["班","bān","M / N","lớp học; chuyến (lượng từ cho xe, máy bay)","我們班有三十個學生。","Lớp chúng tôi có ba mươi học sinh."],
+    ["年級","niánjí","N","khối lớp, năm học thứ mấy","你現在幾年級？","Bây giờ bạn học lớp mấy?"],
+    ["作業","zuòyè","N","bài tập về nhà","今天的作業很多。","Bài tập hôm nay rất nhiều."],
+    ["成績","chéngjī","N","thành tích, điểm số","他的成績很好。","Thành tích của cậu ấy rất tốt."],
+    ["語言","yǔyán","N","ngôn ngữ","你會說幾種語言？","Bạn nói được mấy thứ tiếng?"],
+    ["華語/華文","huáyǔ/huáwén","N","tiếng Hoa","我在台灣學華語。","Tôi học tiếng Hoa ở Đài Loan."],
+    ["黑板","hēibǎn","N","bảng đen","老師在黑板上寫字。","Thầy giáo viết chữ lên bảng đen."],
+    ["課本","kèběn","N","sách giáo khoa","請打開課本。","Hãy mở sách giáo khoa ra."],
+    ["字典","zìdiǎn","N","từ điển","這個字我要查字典。","Chữ này tôi phải tra từ điển."],
+    ["注意","zhùyì","Vst","chú ý","過馬路要注意車子。","Qua đường phải chú ý xe cộ."],
+    ["讀書","dúshū","V-sep","đọc sách, học bài","他喜歡在圖書館讀書。","Anh ấy thích học bài ở thư viện."],
+    ["回答","huídá","V / N","trả lời; câu trả lời","請回答我的問題。","Hãy trả lời câu hỏi của tôi."],
+    ["答","dá","V","trả lời, đáp","這個問題他答對了。","Câu hỏi này cậu ấy trả lời đúng rồi."],
+    ["句","jù","M","câu (lượng từ)","這句話是什麼意思？","Câu này nghĩa là gì?"],
+    ["圖","tú","N","hình, tranh vẽ","請看這張圖。","Hãy nhìn bức hình này."],
+    ["部分/部份","bùfen","Det / N","phần, bộ phận","這本書的第一部分很有意思。","Phần đầu của cuốn sách này rất thú vị."],
+    ["想法","xiǎngfǎ","N","suy nghĩ, ý tưởng","你的想法很好。","Ý tưởng của bạn rất hay."],
+    ["學習","xuéxí","V","học tập","我們要向他學習。","Chúng ta nên học tập anh ấy."],
+    ["練習","liànxí","V / N","luyện tập; bài luyện tập","我每天練習說中文。","Ngày nào tôi cũng luyện nói tiếng Trung."],
+    ["參加","cānjiā","V","tham gia","你要參加明天的活動嗎？","Bạn có tham gia hoạt động ngày mai không?"],
+    ["文化","wénhuà","N","văn hóa","我對台灣文化很有興趣。","Tôi rất hứng thú với văn hóa Đài Loan."],
+    ["認為","rènwéi","V","cho rằng","我認為他說得對。","Tôi cho rằng anh ấy nói đúng."],
+    ["清楚","qīngchǔ","Vs","rõ ràng","請你說清楚一點。","Bạn hãy nói rõ hơn một chút."],
+    ["決定","juédìng","N / Vp","quyết định","我決定明天去看他。","Tôi quyết định ngày mai đi thăm anh ấy."],
+    ["記得","jìde","Vst","nhớ","你還記得我嗎？","Bạn còn nhớ tôi không?"],
+    ["忘","wàng","Vp","quên","我忘了帶錢包。","Tôi quên mang ví rồi."],
+    ["棒","bàng","Vs","giỏi, tuyệt","你的中文真棒！","Tiếng Trung của bạn giỏi thật!"],
+    ["行","xíng","Vs","được, ổn","明天再給你，行嗎？","Mai tôi đưa bạn, được không?"],
+    ["行","háng","M","hàng, dòng (lượng từ)","請看第三行的字。","Hãy xem chữ ở dòng thứ ba."],
+    ["講","jiǎng","V","nói, giảng","請你再講一次。","Bạn hãy nói lại một lần nữa."],
+    ["加","jiā","V","cộng, thêm","三加五是八。","Ba cộng năm là tám."],
+    ["算","suàn","V","tính, tính toán","請你算一下一共多少錢。","Bạn tính xem tổng cộng bao nhiêu tiền."],
+    ["交","jiāo","V","nộp, giao; kết (bạn)","明天要交作業。","Ngày mai phải nộp bài tập."],
+    ["借","jiè","V","mượn, cho mượn","我可以借你的筆嗎？","Tôi mượn bút của bạn được không?"],
+    ["還","huán","V","trả lại","這本書我明天還你。","Cuốn sách này mai tôi trả bạn."],
+    ["辦法","bànfǎ","N","cách, biện pháp","我們想一個辦法吧。","Chúng ta nghĩ một cách đi."],
+    ["方法","fāngfǎ","N","phương pháp, cách làm","這個方法比較簡單。","Cách này đơn giản hơn."],
+    ["有用","yǒuyòng","Vs","có ích, hữu dụng","這本字典很有用。","Cuốn từ điển này rất hữu ích."],
+    ["進步","jìnbù","Vp","tiến bộ","你的中文進步了很多。","Tiếng Trung của bạn tiến bộ nhiều rồi."],
+    ["圖書館","túshūguǎn","N","thư viện","我常去圖書館看書。","Tôi thường đến thư viện đọc sách."],
+    ["洗手間/廁所","xǐshǒujiān/cèsuǒ","N","nhà vệ sinh","請問洗手間在哪裡？","Xin hỏi nhà vệ sinh ở đâu?"],
+    ["宿舍","sùshè","N","ký túc xá","我住在學校的宿舍。","Tôi ở ký túc xá của trường."]
+  ]},
+  {"zh":"房屋與家庭、環境","vi":"Nhà cửa, gia đình, môi trường","words":[
+    ["屋(子)","wū(zi)","N","nhà, căn phòng","屋子裡很暖和。","Trong nhà rất ấm."],
+    ["間","jiān","M","lượng từ cho phòng, nhà (gian, căn)","我家有三間房間。","Nhà tôi có ba phòng."],
+    ["大樓","dàlóu","N","tòa nhà cao tầng","那棟大樓很高。","Tòa nhà đó rất cao."],
+    ["樓上","lóushàng","N","tầng trên","我的房間在樓上。","Phòng tôi ở tầng trên."],
+    ["樓下","lóuxià","N","tầng dưới","他在樓下等你。","Anh ấy đang đợi bạn ở dưới lầu."],
+    ["樓梯","lóutī","N","cầu thang","我們走樓梯上去吧。","Chúng ta đi cầu thang lên đi."],
+    ["電梯","diàntī","N","thang máy","電梯壞了。","Thang máy hỏng rồi."],
+    ["廚房","chúfáng","N","nhà bếp","媽媽在廚房做飯。","Mẹ đang nấu cơm trong bếp."],
+    ["客廳","kètīng","N","phòng khách","我們在客廳看電視。","Chúng tôi xem tivi ở phòng khách."],
+    ["窗(子)/窗戶","chuāng(zi)/chuānghu","N","cửa sổ","請把窗戶打開。","Hãy mở cửa sổ ra."],
+    ["家具","jiājù","N","đồ nội thất","這家店賣的家具很漂亮。","Đồ nội thất cửa hàng này bán rất đẹp."],
+    ["沙發","shāfā","N","ghế sofa","他坐在沙發上看書。","Anh ấy ngồi trên sofa đọc sách."],
+    ["盒/盒(子)","hé/hézi","M / N","cái hộp; hộp (lượng từ)","這個盒子裡有什麼？","Trong cái hộp này có gì?"],
+    ["關","guān","V","đóng, tắt","請把門關上。","Hãy đóng cửa lại."],
+    ["燈","dēng","N","đèn","請把燈打開。","Hãy bật đèn lên."],
+    ["冷氣(機)","lěngqì(jī)","N","máy lạnh, điều hòa","太熱了，開冷氣吧。","Nóng quá, bật máy lạnh đi."],
+    ["冰箱","bīngxiāng","N","tủ lạnh","冰箱裡有牛奶。","Trong tủ lạnh có sữa."],
+    ["台","tái","M","lượng từ cho máy móc, xe cộ (chiếc, cái)","我買了一台新電腦。","Tôi đã mua một chiếc máy tính mới."],
+    ["電","diàn","N","điện","今天晚上沒有電。","Tối nay mất điện."],
+    ["乾淨","gānjìng","Vs","sạch sẽ","他的房間很乾淨。","Phòng của anh ấy rất sạch sẽ."],
+    ["房租","fángzū","N","tiền thuê nhà","這裡的房租很貴。","Tiền thuê nhà ở đây rất đắt."],
+    ["租","zū","V","thuê","我想租一個房間。","Tôi muốn thuê một căn phòng."],
+    ["世界","shìjiè","N","thế giới","世界上有很多國家。","Trên thế giới có rất nhiều quốc gia."],
+    ["火","huǒ","N","lửa","小心火！","Cẩn thận lửa!"],
+    ["雪","xuě","N","tuyết","我沒看過雪。","Tôi chưa từng thấy tuyết."],
+    ["下雪","xiàxuě","V-sep","tuyết rơi","日本的冬天常常下雪。","Mùa đông ở Nhật thường có tuyết rơi."],
+    ["地","dì","N","đất, mặt đất","地上有很多水。","Trên mặt đất có rất nhiều nước."],
+    ["河","hé","N","sông","這條河很長。","Con sông này rất dài."],
+    ["湖","hú","N","hồ","湖邊的風景很美。","Phong cảnh bên hồ rất đẹp."],
+    ["馬","mǎ","N","ngựa","你會騎馬嗎？","Bạn biết cưỡi ngựa không?"],
+    ["鳥","niǎo","N","chim","樹上有兩隻鳥。","Trên cây có hai con chim."],
+    ["貓","māo","N","mèo","我家有一隻貓。","Nhà tôi có một con mèo."],
+    ["狗","gǒu","N","chó","這隻狗很聰明。","Con chó này rất thông minh."],
+    ["海","hǎi","N","biển","我喜歡去海邊玩。","Tôi thích ra biển chơi."],
+    ["草","cǎo","N","cỏ","牛在吃草。","Con bò đang ăn cỏ."],
+    ["樹","shù","N","cây","公園裡有很多樹。","Trong công viên có rất nhiều cây."],
+    ["隻","zhī","M","lượng từ cho động vật (con)","我養了兩隻狗。","Tôi nuôi hai con chó."],
+    ["長","zhǎng","Vs","mọc, lớn lên; trông (ngoại hình)","你的兒子長得真高。","Con trai bạn lớn cao thật."],
+    ["太陽","tàiyáng","N","mặt trời","今天的太陽很大。","Hôm nay nắng to."]
+  ]},
+  {"zh":"日常生活","vi":"Sinh hoạt hằng ngày","words":[
+    ["洗","xǐ","V","rửa, giặt","吃飯以前要洗手。","Trước khi ăn cơm phải rửa tay."],
+    ["洗澡","xǐzǎo","V-sep","tắm","我習慣晚上洗澡。","Tôi quen tắm vào buổi tối."],
+    ["有空/有空兒","yǒukòng/yǒukòngr","Vs","rảnh, có thời gian","你明天有空嗎？","Ngày mai bạn có rảnh không?"],
+    ["發現","fāxiàn","Vp / N","phát hiện","我發現他今天沒來。","Tôi phát hiện hôm nay anh ấy không đến."],
+    ["餐","cān","N","bữa ăn","我一天吃三餐。","Tôi ăn ba bữa một ngày."],
+    ["搬","bān","V","chuyển, dọn, khiêng","請幫我搬這張桌子。","Giúp tôi khiêng cái bàn này với."],
+    ["掛","guà","V","treo","牆上掛著一張畫。","Trên tường treo một bức tranh."],
+    ["脫","tuō","V","cởi (quần áo, giày)","進屋子以前請脫鞋。","Trước khi vào nhà xin hãy cởi giày."]
+  ]},
+  {"zh":"閒暇時間、娛樂","vi":"Thời gian rảnh, giải trí","words":[
+    ["過年","guònián","Vi","ăn Tết, đón năm mới","過年的時候大家都回家。","Dịp Tết mọi người đều về nhà."],
+    ["新年","xīnnián","N","năm mới","新年快樂！","Chúc mừng năm mới!"],
+    ["游泳","yóuyǒng","V-sep","bơi, bơi lội","我每個星期去游泳。","Tuần nào tôi cũng đi bơi."],
+    ["跑/跑步","pǎo/pǎobù","Vi","chạy, chạy bộ","我每天早上跑步。","Sáng nào tôi cũng chạy bộ."],
+    ["踢","tī","V","đá","他們在公園踢足球。","Họ đá bóng ở công viên."],
+    ["足球","zúqiú","N","bóng đá","我哥哥很喜歡足球。","Anh trai tôi rất thích bóng đá."],
+    ["籃球","lánqiú","N","bóng rổ","他打籃球打得很好。","Anh ấy chơi bóng rổ rất giỏi."],
+    ["網球","wǎngqiú","N","quần vợt","你會打網球嗎？","Bạn biết chơi quần vợt không?"],
+    ["棒球","bàngqiú","N","bóng chày","很多台灣人喜歡看棒球。","Rất nhiều người Đài Loan thích xem bóng chày."],
+    ["比賽","bǐsài","Vi / N","thi đấu; trận đấu, cuộc thi","明天有一場足球比賽。","Ngày mai có một trận đấu bóng đá."],
+    ["開始","kāishǐ","Vp","bắt đầu","電影八點開始。","Phim bắt đầu lúc tám giờ."],
+    ["騎","qí","V","cưỡi, đi (xe đạp, xe máy)","我騎車去學校。","Tôi đạp xe đến trường."],
+    ["腳踏車/自行車","jiǎotàchē/zìxíngchē","N","xe đạp","我騎腳踏車去上班。","Tôi đi làm bằng xe đạp."],
+    ["上網","shàngwǎng","V-sep","lên mạng","他喜歡上網看新聞。","Anh ấy thích lên mạng đọc tin tức."],
+    ["網路","wǎnglù","N","mạng, internet","這裡的網路很慢。","Mạng ở đây rất chậm."],
+    ["網站","wǎngzhàn","N","trang web","這個網站很有用。","Trang web này rất hữu ích."],
+    ["報紙","bàozhǐ","N","báo giấy, tờ báo","爸爸每天早上看報紙。","Sáng nào bố cũng đọc báo."],
+    ["次","cì","M","lần (lượng từ)","我去過台灣兩次。","Tôi đã đến Đài Loan hai lần."],
+    ["電影院","diànyǐngyuàn","N","rạp chiếu phim","電影院在學校旁邊。","Rạp chiếu phim ở cạnh trường."],
+    ["部","bù","M","lượng từ cho phim, xe, máy (bộ, chiếc)","這部電影很好看。","Bộ phim này rất hay."],
+    ["場","chǎng","M","lượng từ cho trận đấu, buổi diễn, cơn mưa","昨天下了一場大雨。","Hôm qua có một trận mưa to."],
+    ["音樂","yīnyuè","N","âm nhạc","我喜歡聽音樂。","Tôi thích nghe nhạc."],
+    ["票","piào","N","vé","我買了兩張電影票。","Tôi đã mua hai vé xem phim."],
+    ["活動","huódòng","N","hoạt động","學校有很多活動。","Trường có rất nhiều hoạt động."],
+    ["故事","gùshi","N","câu chuyện","媽媽給孩子說故事。","Mẹ kể chuyện cho con nghe."],
+    ["聊天/聊天兒","liáotiān/liáotiānr","V-sep","trò chuyện, tán gẫu","我喜歡跟朋友聊天。","Tôi thích trò chuyện với bạn bè."],
+    ["有時候/有時","yǒushíhou/yǒushí","Adv","thỉnh thoảng, có lúc","我有時候在家吃飯。","Thỉnh thoảng tôi ăn cơm ở nhà."],
+    ["平常","píngcháng","N","thường ngày, bình thường","我平常七點起床。","Thường ngày tôi dậy lúc bảy giờ."],
+    ["總是","zǒngshì","Adv","luôn luôn","他總是很忙。","Anh ấy lúc nào cũng bận."],
+    ["已經","yǐjīng","Adv","đã, rồi","我已經吃飽了。","Tôi đã ăn no rồi."],
+    ["後來","hòulái","N","về sau, sau đó","他以前住台北，後來搬到高雄。","Trước đây anh ấy ở Đài Bắc, về sau chuyển đến Cao Hùng."],
+    ["各","gè","Det","mỗi, các","各位同學，請坐。","Các bạn học sinh, mời ngồi."],
+    ["變","biàn","V","thay đổi, trở nên","天氣變冷了。","Trời trở lạnh rồi."],
+    ["才","cái","Adv","mới (muộn hơn dự kiến); chỉ mới","他十點才起床。","Mười giờ anh ấy mới dậy."]
+  ]},
+  {"zh":"與他人的關係","vi":"Quan hệ với người khác","words":[
+    ["客人","kèrén","N","khách","今天家裡有客人。","Hôm nay nhà có khách."],
+    ["客氣","kèqi","Vs","khách sáo, lịch sự","你太客氣了。","Bạn khách sáo quá."],
+    ["不客氣","bùkèqì","","không có gì, đừng khách sáo","謝謝你！不客氣。","Cảm ơn bạn! Không có gì."],
+    ["不好意思","bùhǎoyìsi","","xin lỗi, ngại quá","不好意思，我來晚了。","Xin lỗi, tôi đến muộn."],
+    ["喂","wéi","Ptc","a lô (khi nghe điện thoại)","喂，請問王先生在嗎？","A lô, xin hỏi ông Vương có nhà không?"],
+    ["喂","wèi","Ptc","này, ê (tiếng gọi)","喂，你的東西掉了！","Này, bạn đánh rơi đồ kìa!"],
+    ["麻煩","máfan","N","sự phiền phức, rắc rối","這是一個大麻煩。","Đây là một rắc rối lớn."],
+    ["禮物","lǐwù","N","quà, quà tặng","這是我送你的禮物。","Đây là quà tôi tặng bạn."],
+    ["歡迎","huānyíng","Vst","chào mừng, hoan nghênh","歡迎你來我家玩。","Hoan nghênh bạn đến nhà tôi chơi."],
+    ["寄","jì","V","gửi (thư, bưu kiện)","我要寄一封信。","Tôi muốn gửi một lá thư."],
+    ["接","jiē","V","đón (người); nhận, nghe (điện thoại)","我去機場接朋友。","Tôi ra sân bay đón bạn."],
+    ["郵局","yóujú","N","bưu điện","郵局在銀行對面。","Bưu điện ở đối diện ngân hàng."],
+    ["銀行","yínháng","N","ngân hàng","我要去銀行換錢。","Tôi phải đến ngân hàng đổi tiền."],
+    ["壞","huài","Vp","hỏng, hư; xấu","我的手機壞了。","Điện thoại của tôi hỏng rồi."],
+    ["幫忙","bāngmáng","V-sep","giúp đỡ, giúp một tay","謝謝你來幫忙。","Cảm ơn bạn đã đến giúp."],
+    ["幫助","bāngzhù","V","giúp đỡ, trợ giúp","謝謝你的幫助。","Cảm ơn sự giúp đỡ của bạn."],
+    ["小朋友","xiǎopéngyǒu","N","trẻ em, bạn nhỏ","小朋友，你幾歲？","Bé ơi, con mấy tuổi?"],
+    ["信","xìn","N","thư, lá thư","我收到了一封信。","Tôi đã nhận được một lá thư."],
+    ["信封","xìnfēng","N","phong bì","請把地址寫在信封上。","Hãy viết địa chỉ lên phong bì."],
+    ["認識","rènshì","Vpt","quen biết","我認識他很久了。","Tôi quen anh ấy lâu rồi."],
+    ["最近","zuìjìn","Adv","gần đây, dạo này","你最近好嗎？","Dạo này bạn khỏe không?"],
+    ["聽說","tīngshuō","V","nghe nói","聽說他要結婚了。","Nghe nói anh ấy sắp kết hôn."],
+    ["見面","jiànmiàn","V-sep","gặp mặt","我們明天在哪裡見面？","Ngày mai chúng ta gặp nhau ở đâu?"],
+    ["事情","shìqíng","N","sự việc, chuyện","我有一件事情想問你。","Tôi có một việc muốn hỏi bạn."],
+    ["幫","bāng","V","giúp, giúp đỡ","你可以幫我嗎？","Bạn giúp tôi được không?"],
+    ["錢包","qiánbāo","N","ví tiền","我的錢包不見了。","Ví tiền của tôi biến mất rồi."],
+    ["拉","lā","V","kéo","請拉這個門。","Hãy kéo cánh cửa này."],
+    ["啊","ā","Ptc","trợ từ cảm thán (a, à)","今天好熱啊！","Hôm nay nóng quá!"],
+    ["怎麼辦","zěnmebàn","","làm sao bây giờ","我沒帶錢，怎麼辦？","Tôi không mang tiền, làm sao bây giờ?"]
+  ]},
+  {"zh":"旅行","vi":"Du lịch","words":[
+    ["車站","chēzhàn","N","bến xe, nhà ga","車站離這裡很近。","Nhà ga cách đây rất gần."],
+    ["汽車","qìchē","N","ô tô, xe hơi","路上有很多汽車。","Trên đường có rất nhiều ô tô."],
+    ["飛機場/機場","fēijīchǎng/jīchǎng","N","sân bay","我們坐計程車去機場。","Chúng tôi đi taxi ra sân bay."],
+    ["馬路","mǎlù","N","đường cái, đường lớn","過馬路的時候要小心。","Khi qua đường phải cẩn thận."],
+    ["路口","lùkǒu","N","giao lộ, đầu đường","請在下一個路口停車。","Hãy dừng xe ở giao lộ tiếp theo."],
+    ["十字路口","shízìlùkǒu","N","ngã tư","到十字路口往右轉。","Đến ngã tư thì rẽ phải."],
+    ["對面","duìmiàn","N","đối diện","我家對面有一家超市。","Đối diện nhà tôi có một siêu thị."],
+    ["旅行","lǚxíng","Vi / N","du lịch; chuyến du lịch","我想去日本旅行。","Tôi muốn đi du lịch Nhật Bản."],
+    ["飯店","fàndiàn","N","khách sạn; nhà hàng","這家飯店很貴。","Khách sạn này rất đắt."],
+    ["旅館","lǚguǎn","N","nhà nghỉ, khách sạn","我們住在車站附近的旅館。","Chúng tôi ở nhà nghỉ gần nhà ga."],
+    ["袋子","dàizi","N","cái túi","請給我一個袋子。","Cho tôi xin một cái túi."],
+    ["參觀","cānguān","V","tham quan","我們明天去參觀那所大學。","Ngày mai chúng tôi đi tham quan trường đại học đó."],
+    ["地圖","dìtú","N","bản đồ","我在地圖上找不到這個地方。","Tôi không tìm thấy nơi này trên bản đồ."],
+    ["照相機/相機","zhàoxiàngjī/xiàngjī","N","máy ảnh","這台相機是新的。","Chiếc máy ảnh này là máy mới."],
+    ["照相","zhàoxiàng","V-sep","chụp ảnh","這裡不可以照相。","Ở đây không được chụp ảnh."],
+    ["照片/相片/相片兒","zhàopiàn/xiàngpiàn/xiàngpiànr","N","ảnh, tấm ảnh","這張照片是在哪裡照的？","Tấm ảnh này chụp ở đâu?"],
+    ["風景","fēngjǐng","N","phong cảnh","這裡的風景很美。","Phong cảnh ở đây rất đẹp."],
+    ["南/南部","nán/nánbù","N","phía nam, miền Nam","我的老家在台灣南部。","Quê tôi ở miền Nam Đài Loan."],
+    ["西/西部","xī/xībù","N","phía tây, miền Tây","太陽從西邊下山。","Mặt trời lặn ở phía tây."],
+    ["北/北部","běi/běibù","N","phía bắc, miền Bắc","台北在台灣北部。","Đài Bắc ở miền Bắc Đài Loan."],
+    ["東/東部","dōng/dōngbù","N","phía đông, miền Đông","台灣東部的風景很漂亮。","Phong cảnh miền Đông Đài Loan rất đẹp."],
+    ["中間","zhōngjiān","N","ở giữa","我坐在他們兩個人中間。","Tôi ngồi giữa hai người họ."],
+    ["離","lí","Prep","cách (chỉ khoảng cách)","我家離學校很近。","Nhà tôi cách trường rất gần."],
+    ["離開","líkāi","Vp","rời khỏi, rời đi","他昨天離開台灣了。","Hôm qua anh ấy đã rời Đài Loan."],
+    ["經過","jīngguò","V","đi qua, đi ngang qua","我每天經過這家店。","Ngày nào tôi cũng đi ngang qua cửa hàng này."],
+    ["往","wǎng","Prep","về phía, hướng tới","請往前走。","Hãy đi về phía trước."],
+    ["送","sòng","V","tặng; tiễn, đưa","朋友送我一本書。","Bạn tặng tôi một cuốn sách."],
+    ["放","fàng","V","đặt, để","請把書放在桌子上。","Hãy đặt sách lên bàn."],
+    ["近","jìn","Vs","gần","車站很近，走路五分鐘。","Nhà ga rất gần, đi bộ năm phút."],
+    ["遠","yuǎn","Vs","xa","你家離這裡遠不遠？","Nhà bạn cách đây có xa không?"],
+    ["向","xiàng","Prep","hướng về, về phía","請向右邊看。","Hãy nhìn sang bên phải."],
+    ["轉","zhuǎn","V","rẽ, quay","前面路口請左轉。","Đến giao lộ phía trước hãy rẽ trái."],
+    ["掉","diào","Vpt","rơi, rớt; mất","我的手機掉在地上了。","Điện thoại của tôi rơi xuống đất rồi."],
+    ["一直","yīzhí","Adv","luôn, suốt; đi thẳng","一直走就到了。","Cứ đi thẳng là đến."],
+    ["最後","zuìhòu","N","cuối cùng","最後他還是來了。","Cuối cùng anh ấy vẫn đến."]
+  ]},
+  {"zh":"健康及身體照護","vi":"Sức khỏe, chăm sóc cơ thể","words":[
+    ["病人","bìngrén","N","bệnh nhân","醫生在看病人。","Bác sĩ đang khám cho bệnh nhân."],
+    ["頭髮/髮","tóufǎ/fǎ","N","tóc","她的頭髮很長。","Tóc cô ấy rất dài."],
+    ["手指(頭)/指頭","shǒuzhǐ(tou)/zhǐtou","N","ngón tay","我的手指很痛。","Ngón tay tôi rất đau."],
+    ["肚(子)","dù(zi)","N","bụng","我肚子餓了。","Tôi đói bụng rồi."],
+    ["臉","liǎn","N","mặt","起床以後要洗臉。","Ngủ dậy phải rửa mặt."],
+    ["心","xīn","N","tim; lòng","他的心很好。","Anh ấy rất tốt bụng."],
+    ["健康","jiànkāng","Vs / N","khỏe mạnh; sức khỏe","身體健康最重要。","Sức khỏe là quan trọng nhất."],
+    ["渴","kě","Vs","khát","我很渴，想喝水。","Tôi khát quá, muốn uống nước."],
+    ["舒服","shūfu","Vs","dễ chịu, thoải mái","我今天不太舒服。","Hôm nay tôi không được khỏe lắm."],
+    ["眼鏡","yǎnjìng","N","kính mắt","我的眼鏡在哪裡？","Kính của tôi ở đâu?"]
+  ]},
+  {"zh":"購物","vi":"Mua sắm","words":[
+    ["賣","mài","V","bán","這家店賣水果。","Cửa hàng này bán hoa quả."],
+    ["付","fù","V","trả tiền, thanh toán","今天我來付錢。","Hôm nay để tôi trả tiền."],
+    ["希望","xīwàng","Vst","hy vọng, mong","我希望明天不下雨。","Tôi mong ngày mai không mưa."],
+    ["書店","shūdiàn","N","hiệu sách","我在書店買了一本字典。","Tôi mua một cuốn từ điển ở hiệu sách."],
+    ["商店","shāngdiàn","N","cửa hàng","這家商店幾點開門？","Cửa hàng này mấy giờ mở cửa?"],
+    ["市場","shìchǎng","N","chợ","媽媽去市場買菜。","Mẹ đi chợ mua rau."],
+    ["超級市場/超市","chāojíshìchǎng/chāoshì","N","siêu thị","我去超市買牛奶。","Tôi đi siêu thị mua sữa."],
+    ["信用卡","xìnyòngkǎ","N","thẻ tín dụng","我可以用信用卡嗎？","Tôi dùng thẻ tín dụng được không?"],
+    ["重要","zhòngyào","Vs","quan trọng","這件事很重要。","Việc này rất quan trọng."],
+    ["顏色","yánsè","N","màu sắc","你喜歡什麼顏色？","Bạn thích màu gì?"],
+    ["黃色","huángsè","N","màu vàng","那件黃色的衣服很好看。","Chiếc áo màu vàng đó rất đẹp."],
+    ["白色","báisè","N","màu trắng","我想買一雙白色的鞋子。","Tôi muốn mua một đôi giày màu trắng."],
+    ["手錶/手表/錶/表","shǒubiǎo/biǎo","N","đồng hồ đeo tay","這支手錶是爸爸送我的。","Chiếc đồng hồ này là bố tặng tôi."],
+    ["襪(子)","wà(zi)","N","tất, vớ","我要買兩雙襪子。","Tôi muốn mua hai đôi tất."],
+    ["雙","shuāng","M","đôi (lượng từ)","這雙鞋多少錢？","Đôi giày này bao nhiêu tiền?"],
+    ["裙(子)","qún(zi)","N","váy","她今天穿裙子。","Hôm nay cô ấy mặc váy."],
+    ["褲(子)","kù(zi)","N","quần","這條褲子太長了。","Chiếc quần này dài quá."],
+    ["大衣","dàyī","N","áo khoác dài, áo măng tô","外面很冷，穿上大衣吧。","Bên ngoài lạnh lắm, mặc áo khoác dài vào đi."],
+    ["帽(子)","mào(zi)","N","mũ, nón","他戴著一頂帽子。","Anh ấy đội một chiếc mũ."],
+    ["皮包","píbāo","N","túi xách da","我的皮包裡有手機和錢。","Trong túi xách của tôi có điện thoại và tiền."],
+    ["外套","wàitào","N","áo khoác","今天很冷，要穿外套。","Hôm nay lạnh lắm, phải mặc áo khoác."],
+    ["小心","xiǎoxīn","Vs","cẩn thận","下雨了，開車要小心。","Mưa rồi, lái xe phải cẩn thận."],
+    ["比較/較","bǐjiào/jiào","Adv","khá, tương đối; hơn","今天比較冷。","Hôm nay lạnh hơn."],
+    ["差不多","chàbùduō","Vs / Adv","gần như, xấp xỉ; gần giống nhau","我們兩個人差不多高。","Hai chúng tôi cao gần bằng nhau."],
+    ["戴","dài","V","đeo, đội (mũ, kính, đồng hồ)","她戴著眼鏡。","Cô ấy đeo kính."],
+    ["試","shì","V","thử","我可以試一下這件衣服嗎？","Tôi thử chiếc áo này một chút được không?"],
+    ["輕","qīng","Vs","nhẹ","這個包很輕。","Cái túi này rất nhẹ."],
+    ["重","zhòng","Vs","nặng","這個箱子太重了。","Cái thùng này nặng quá."],
+    ["樣子","yàngzi","N","kiểu dáng, dáng vẻ","這件衣服的樣子很好看。","Kiểu dáng chiếc áo này rất đẹp."],
+    ["特別","tèbié","Vs","đặc biệt","今天是一個特別的日子。","Hôm nay là một ngày đặc biệt."],
+    ["簡單","jiǎndān","Vs","đơn giản","這個問題很簡單。","Câu hỏi này rất đơn giản."],
+    ["其他/其它","qítā","Det","khác, cái khác","你還有其他的問題嗎？","Bạn còn câu hỏi nào khác không?"],
+    ["聲音/聲","shēngyīn","N","âm thanh, tiếng","她的聲音很好聽。","Giọng cô ấy rất hay."],
+    ["好像","hǎoxiàng","Adv","hình như, dường như","他好像生病了。","Hình như anh ấy bị ốm rồi."],
+    ["奇怪","qíguài","Vs","kỳ lạ","真奇怪，他怎麼還沒來？","Lạ thật, sao anh ấy vẫn chưa đến?"]
+  ]},
+  {"zh":"飲食","vi":"Ăn uống","words":[
+    ["三明治","sānmíngzhì","N","bánh sandwich","我早餐吃三明治。","Bữa sáng tôi ăn sandwich."],
+    ["漢堡","hànbǎo","N","hamburger","我要一個漢堡和一杯可樂。","Cho tôi một hamburger và một cốc coca."],
+    ["蘋果","píngguǒ","N","táo","這些蘋果很甜。","Những quả táo này rất ngọt."],
+    ["西瓜","xīguā","N","dưa hấu","夏天吃西瓜很舒服。","Mùa hè ăn dưa hấu rất đã."],
+    ["啤酒","píjiǔ","N","bia","爸爸喜歡喝啤酒。","Bố thích uống bia."],
+    ["紅茶","hóngchá","N","hồng trà, trà đen","我要一杯熱紅茶。","Cho tôi một cốc hồng trà nóng."],
+    ["點心","diǎnxīn","N","món điểm tâm, đồ ăn nhẹ","下午我們吃了一些點心。","Buổi chiều chúng tôi ăn một ít đồ ăn nhẹ."],
+    ["冰淇淋","bīngqílín","N","kem","小孩子都愛吃冰淇淋。","Trẻ con đều thích ăn kem."],
+    ["青菜","qīngcài","N","rau xanh","多吃青菜對身體好。","Ăn nhiều rau xanh tốt cho sức khỏe."],
+    ["糖","táng","N","đường; kẹo","我的咖啡不加糖。","Cà phê của tôi không cho đường."],
+    ["叉(子)","chā(zi)","N","nĩa, dĩa","請給我一支叉子。","Cho tôi xin một cái nĩa."],
+    ["刀(子)","dāo(zi)","N","dao","這把刀子很好用。","Con dao này dùng rất tốt."],
+    ["湯匙","tāngchí","N","thìa, muỗng","喝湯要用湯匙。","Ăn canh phải dùng thìa."],
+    ["盤/盤(子)","pán(zi)","M / N","cái đĩa; đĩa (lượng từ)","請把盤子洗乾淨。","Hãy rửa sạch đĩa."],
+    ["片","piàn","M","lát, miếng, tấm (lượng từ)","我吃了兩片麵包。","Tôi đã ăn hai lát bánh mì."],
+    ["瓶/瓶(子)","píng(zi)","M / N","chai, lọ","我買了一瓶水。","Tôi đã mua một chai nước."],
+    ["支","zhī","M","lượng từ cho vật dài nhỏ như bút (cây, chiếc)","我有三支筆。","Tôi có ba cây bút."],
+    ["份","fèn","M","phần, suất (lượng từ)","我要一份炒飯。","Cho tôi một suất cơm rang."],
+    ["道","dào","M","lượng từ cho món ăn (món)","這道菜很好吃。","Món này rất ngon."],
+    ["一半/一半兒","yībàn/yībànr","Det","một nửa","這個蛋糕我們一人一半。","Cái bánh này mỗi người chúng ta một nửa."],
+    ["味道","wèidào","N","mùi vị","這個湯的味道很好。","Canh này vị rất ngon."],
+    ["酸","suān","Vs","chua","這個水果有一點酸。","Quả này hơi chua."],
+    ["苦","kǔ","Vs","đắng","這杯咖啡太苦了。","Cốc cà phê này đắng quá."],
+    ["鹹","xián","Vs","mặn","這個菜太鹹了。","Món này mặn quá."],
+    ["辣","là","Vs","cay","我不能吃辣的東西。","Tôi không ăn được đồ cay."],
+    ["香","xiāng","Vs","thơm","媽媽做的菜好香。","Món mẹ nấu thơm quá."],
+    ["條","tiáo","M","lượng từ cho vật dài: cá, con đường, quần","我買了一條魚。","Tôi đã mua một con cá."],
+    ["種","zhǒng","M","loại, kiểu (lượng từ)","這種水果很甜。","Loại quả này rất ngọt."],
+    ["包","bāo","M","gói, bao (lượng từ)","我買了兩包餅乾。","Tôi đã mua hai gói bánh quy."],
+    ["全部","quánbù","Det","toàn bộ","這些書我全部看完了。","Những cuốn sách này tôi đọc hết toàn bộ rồi."],
+    ["所有","suǒyǒu","Det","tất cả","所有的學生都來了。","Tất cả học sinh đều đến rồi."],
+    ["需要","xūyào","Vst","cần","你需要幫忙嗎？","Bạn có cần giúp không?"],
+    ["烤","kǎo","V","nướng","媽媽在烤麵包。","Mẹ đang nướng bánh mì."]
+  ]},
+  {"zh":"其他","vi":"Từ khác","words":[
+    ["過","guò","V","qua, trải qua; đón (lễ, sinh nhật)","我們一起過生日吧。","Chúng ta cùng đón sinh nhật nhé."],
+    ["但是/但","dànshì/dàn","Conj","nhưng","我想去，但是沒有時間。","Tôi muốn đi nhưng không có thời gian."],
+    ["或是","huòshì","Conj","hoặc là","你可以坐公車或是坐計程車。","Bạn có thể đi xe buýt hoặc đi taxi."],
+    ["要是","yàoshì","Conj","nếu như","要是你有空，就來我家玩。","Nếu bạn rảnh thì đến nhà tôi chơi."],
+    ["把","bǎ","Ptc","giới từ đưa tân ngữ lên trước động từ (câu chữ 把)","請把門打開。","Hãy mở cửa ra."],
+    ["被","bèi","Ptc","bị, được (câu bị động)","我的蛋糕被弟弟吃了。","Bánh của tôi bị em trai ăn mất rồi."],
+    ["讓","ràng","Ptc","để cho, khiến; bị (câu bị động)","媽媽不讓我出去玩。","Mẹ không cho tôi ra ngoài chơi."],
+    ["雖然","suīrán","Conj","tuy, mặc dù","雖然很累，但是我很高興。","Tuy rất mệt nhưng tôi rất vui."],
+    ["那麼","nàme","Adv","như thế, đến vậy; vậy thì","你為什麼那麼高興？","Sao bạn vui đến vậy?"],
+    ["這麼","zhème","Adv","như thế này, đến thế này","今天怎麼這麼熱？","Sao hôm nay nóng thế này?"],
+    ["本來","běnlái","Adv","vốn dĩ, ban đầu","我本來想去，後來沒去。","Ban đầu tôi định đi, về sau lại không đi."],
+    ["啦","la","Ptc","trợ từ cuối câu (了 + 啊)","好啦，我們走吧。","Được rồi, chúng ta đi thôi."],
+    ["呀","yā","Ptc","trợ từ cảm thán (biến âm của 啊)","你是誰呀？","Bạn là ai thế?"],
+    ["以為","yǐwéi","V","tưởng, tưởng rằng","我以為今天是星期五。","Tôi tưởng hôm nay là thứ Sáu."],
+    ["有的","yǒude","Det","có cái, một số","有的人喜歡喝茶，有的人喜歡喝咖啡。","Có người thích uống trà, có người thích uống cà phê."],
+    ["替","tì","Prep","thay, thay cho","你可以替我去嗎？","Bạn đi thay tôi được không?"],
+    ["一下(子)/一下子兒","yīxià(zi)/yīxiàzir","N","một lát, một chút","請等一下。","Xin chờ một chút."],
+    ["不過","bùguò","Adv / Conj","có điều, tuy nhiên; chẳng qua chỉ","這件衣服很好看，不過太貴了。","Chiếc áo này đẹp, có điều đắt quá."],
+    ["地","de","Ptc","trợ từ nối trạng ngữ với động từ (một cách…)","他高興地笑了。","Anh ấy cười một cách vui vẻ."]
+  ]}]},
+{"id":2,"zh":"基礎級","name":"Level 2","topics":[
+  {"zh":"個人資料","vi":"Thông tin cá nhân","words":[
+    ["出生","chūshēng","Vp","sinh ra, chào đời","我是在河內出生的。","Tôi sinh ra ở Hà Nội."],
+    ["不同","bùtóng","Vs","khác nhau, không giống","我們的想法不同。","Suy nghĩ của chúng tôi khác nhau."],
+    ["住址","zhùzhǐ","N","địa chỉ, nơi ở","請告訴我你的住址。","Hãy cho tôi biết địa chỉ nơi ở của bạn."],
+    ["母語","mǔyǔ","N","tiếng mẹ đẻ","我的母語是越南語。","Tiếng mẹ đẻ của tôi là tiếng Việt."],
+    ["表","biǎo","N","bảng, biểu mẫu; đồng hồ đeo tay","請先填這張表。","Hãy điền tờ biểu mẫu này trước."],
+    ["鐘","zhōng","M","đơn vị giờ, phút trong 點鐘, 分鐘","現在是下午三點鐘。","Bây giờ là ba giờ chiều."],
+    ["鐘/時鐘","zhōng/shízhōng","N","đồng hồ (treo tường, để bàn)","牆上的時鐘壞了。","Đồng hồ trên tường hỏng rồi."],
+    ["傳真","chuánzhēn","N","fax","請給我你的傳真號碼。","Cho tôi xin số fax của bạn."],
+    ["白天","báitian","N","ban ngày","他白天工作，晚上上課。","Ban ngày anh ấy đi làm, buổi tối đi học."],
+    ["半夜","bànyè","N","nửa đêm","他常常半夜才睡覺。","Anh ấy thường nửa đêm mới đi ngủ."],
+    ["夜晚","yèwǎn","N","ban đêm, buổi tối","這個城市的夜晚很熱鬧。","Ban đêm ở thành phố này rất nhộn nhịp."],
+    ["日子","rìzi","N","ngày, ngày tháng","今天是一個重要的日子。","Hôm nay là một ngày quan trọng."],
+    ["夜","yè","N","đêm, ban đêm","我在那裡住了兩夜。","Tôi đã ở đó hai đêm."],
+    ["春季","chūnjì","N","mùa xuân, tiết xuân","春季是旅行的好季節。","Mùa xuân là mùa đẹp để đi du lịch."],
+    ["時","shí","N","lúc, khi","上課時請不要說話。","Trong giờ học xin đừng nói chuyện."],
+    ["不久","bùjiǔ","N","không lâu","他來台灣不久。","Anh ấy đến Đài Loan chưa lâu."],
+    ["剛才","gāngcái","Adv","vừa nãy, lúc nãy","剛才有人打電話給你。","Vừa nãy có người gọi điện cho bạn."],
+    ["早點","zǎodiǎn","Adv","sớm một chút","明天要早點起床。","Ngày mai phải dậy sớm một chút."],
+    ["正好","zhènghǎo","Adv / Vs","vừa đúng, vừa khéo","你來得正好。","Bạn đến thật đúng lúc."],
+    ["年紀","niánjì","N","tuổi tác","我爺爺年紀很大了。","Ông nội tôi tuổi đã cao."],
+    ["男人","nánrén","N","đàn ông","那個男人是誰？","Người đàn ông đó là ai?"],
+    ["女人","nǚrén","N","phụ nữ, đàn bà","那個女人是我們的老師。","Người phụ nữ đó là cô giáo của chúng tôi."],
+    ["父親","fùqīn","N","bố, cha","我父親是醫生。","Bố tôi là bác sĩ."],
+    ["母親","mǔqīn","N","mẹ","我母親在醫院工作。","Mẹ tôi làm việc ở bệnh viện."],
+    ["父母","fùmǔ","N","bố mẹ, cha mẹ","我父母住在鄉下。","Bố mẹ tôi sống ở quê."],
+    ["外公","wàigōng","N","ông ngoại","外公常常帶我去公園。","Ông ngoại thường dẫn tôi ra công viên."],
+    ["外婆","wàipó","N","bà ngoại","外婆做的菜最好吃。","Món bà ngoại nấu là ngon nhất."],
+    ["伯伯/伯","bóbo/bó","N","bác trai (anh của bố)","王伯伯是爸爸的哥哥。","Bác Vương là anh trai của bố."],
+    ["伯父","bófù","N","bác trai (anh của bố), bác (gọi lịch sự người lớn tuổi)","伯父，您好！","Cháu chào bác ạ!"],
+    ["伯母","bómǔ","N","bác gái (vợ của bác trai)","伯母做的菜真好吃。","Món bác gái nấu ngon thật."],
+    ["叔叔/叔","shúshu/shú","N","chú (em trai của bố)","我叔叔在銀行上班。","Chú tôi làm ở ngân hàng."],
+    ["姑姑","gūgu","N","cô (chị em gái của bố)","我姑姑住在高雄。","Cô tôi sống ở Cao Hùng."],
+    ["孫女","sūnnǚ","N","cháu gái (của ông bà)","她的孫女今年五歲。","Cháu gái của bà ấy năm nay năm tuổi."],
+    ["孫子","sūnzi","N","cháu trai (của ông bà)","爺爺很愛他的孫子。","Ông nội rất yêu cháu trai của mình."],
+    ["關係","guānxì","N","quan hệ","他們兩個人的關係很好。","Quan hệ của hai người họ rất tốt."],
+    ["害怕","hàipà","Vs","sợ, sợ hãi","我很害怕一個人在家。","Tôi rất sợ ở nhà một mình."],
+    ["開心","kāixīn","Vs","vui vẻ","今天玩得很開心。","Hôm nay chơi rất vui."],
+    ["擔心","dānxīn","Vst","lo lắng","別擔心，我沒事。","Đừng lo, tôi không sao."],
+    ["傷心","shāngxīn","Vs-sep","đau lòng, buồn","她哭得很傷心。","Cô ấy khóc rất đau lòng."],
+    ["美麗","měilì","Vs","đẹp, xinh đẹp","這是一個美麗的地方。","Đây là một nơi xinh đẹp."],
+    ["帥","shuài","Vs","đẹp trai","你哥哥長得很帥。","Anh trai bạn rất đẹp trai."],
+    ["笨","bèn","Vs","ngốc, đần","我真笨，又忘了帶鑰匙。","Tôi ngốc thật, lại quên mang chìa khóa."],
+    ["認真","rènzhēn","Vs","chăm chỉ, nghiêm túc","他上課很認真。","Cậu ấy học trên lớp rất nghiêm túc."],
+    ["敢","gǎn","Vaux","dám","我不敢一個人去。","Tôi không dám đi một mình."],
+    ["急","jí","Vs","gấp, vội, sốt ruột","別急，慢慢來。","Đừng vội, cứ từ từ."],
+    ["禮貌","lǐmào","N","lễ phép, phép lịch sự","這個孩子很有禮貌。","Đứa bé này rất lễ phép."],
+    ["害羞","hàixiū","Vs","xấu hổ, ngại ngùng","她很害羞，不太愛說話。","Cô ấy hay ngại, ít nói."],
+    ["關心","guānxīn","Vst","quan tâm","謝謝你的關心。","Cảm ơn bạn đã quan tâm."],
+    ["心情","xīnqíng","N","tâm trạng","我今天心情很好。","Hôm nay tâm trạng tôi rất tốt."],
+    ["幸福","xìngfú","Vs","hạnh phúc","他們過得很幸福。","Họ sống rất hạnh phúc."],
+    ["差","chà","Vs-pred","kém, tệ","我的數學很差。","Môn toán của tôi rất kém."],
+    ["兄弟","xiōngdì","N","anh em trai","他們兄弟兩個人長得很像。","Hai anh em họ trông rất giống nhau."],
+    ["阿姨","āyí","N","dì; cô (gọi phụ nữ lớn tuổi hơn)","阿姨送我一件毛衣。","Dì tặng tôi một chiếc áo len."],
+    ["身邊","shēnbiān","N","bên cạnh, bên mình","父母都不在他身邊。","Bố mẹ đều không ở bên cạnh anh ấy."],
+    ["身高","shēngāo","N","chiều cao","你的身高是多少？","Bạn cao bao nhiêu?"],
+    ["長大","zhǎngdà","Vp","lớn lên, trưởng thành","我長大以後想當老師。","Lớn lên tôi muốn làm giáo viên."]
+  ]},
+  {"zh":"工作","vi":"Công việc","words":[
+    ["經理","jīnglǐ","N","giám đốc, người quản lý","經理正在開會。","Giám đốc đang họp."],
+    ["教書","jiāoshū","V-sep","dạy học","我媽媽在小學教書。","Mẹ tôi dạy học ở trường tiểu học."],
+    ["開會","kāihuì","V-sep","họp","我們下午兩點開會。","Chúng tôi họp lúc hai giờ chiều."],
+    ["加班","jiābān","V-sep","tăng ca, làm thêm giờ","他今天晚上要加班。","Tối nay anh ấy phải tăng ca."],
+    ["危險","wéixiǎn","Vs","nguy hiểm","在這裡游泳很危險。","Bơi ở đây rất nguy hiểm."],
+    ["安全","ānquán","Vs / N","an toàn","這個地方很安全。","Nơi này rất an toàn."],
+    ["成功","chénggōng","Vs","thành công","他的計畫成功了。","Kế hoạch của anh ấy đã thành công."],
+    ["報告","bàogào","V / N","báo cáo","我明天要交一份報告。","Ngày mai tôi phải nộp một bản báo cáo."],
+    ["資料","zīliào","N","tài liệu, dữ liệu","請把這些資料給老師。","Hãy đưa những tài liệu này cho thầy giáo."],
+    ["管理","guǎnlǐ","V","quản lý, quản trị","他在公司管理三十個人。","Ở công ty anh ấy quản lý ba mươi người."],
+    ["做法/作法","zuòfǎ","N","cách làm","這個做法不太好。","Cách làm này không ổn lắm."],
+    ["看法","kànfǎ","N","quan điểm, cách nhìn","你對這件事有什麼看法？","Bạn có quan điểm gì về việc này?"],
+    ["辦","bàn","V","làm, xử lý, giải quyết (thủ tục)","我要去銀行辦一些事。","Tôi phải đến ngân hàng giải quyết vài việc."],
+    ["打工","dǎgōng","V-sep","làm thêm (bán thời gian)","我週末在咖啡店打工。","Cuối tuần tôi làm thêm ở quán cà phê."],
+    ["選","xuǎn","V","chọn, lựa chọn; bầu","你想選哪一個？","Bạn muốn chọn cái nào?"],
+    ["嚴重","yánzhòng","Vs","nghiêm trọng","他的病不嚴重。","Bệnh của anh ấy không nghiêm trọng."],
+    ["正式","zhèngshì","Vs","chính thức","比賽明天正式開始。","Cuộc thi ngày mai chính thức bắt đầu."]
+  ]},
+  {"zh":"教育","vi":"Giáo dục","words":[
+    ["查","chá","V","tra, tra cứu","我上網查一下。","Để tôi lên mạng tra một chút."],
+    ["考","kǎo","V","thi, thi cử","我明天要考數學。","Ngày mai tôi thi toán."],
+    ["例如","lìrú","Prep","ví dụ như","我喜歡運動，例如游泳和跑步。","Tôi thích thể thao, ví dụ như bơi và chạy bộ."],
+    ["例(子)","lì(zi)","N","ví dụ","請你給我一個例子。","Bạn cho tôi một ví dụ đi."],
+    ["題目","tímù","N","đề bài, câu hỏi; đề tài","這個題目很難。","Đề bài này rất khó."],
+    ["題","tí","M","câu (lượng từ cho câu hỏi, đề bài)","這一題我不會。","Câu này tôi không biết làm."],
+    ["答案","dáàn","N","đáp án","你知道答案嗎？","Bạn biết đáp án không?"],
+    ["念書/唸書","niànshū","V-sep","học bài, đi học; đọc sách","他在台灣念書。","Anh ấy đang học ở Đài Loan."],
+    ["歷史","lìshǐ","N","lịch sử","我對歷史很有興趣。","Tôi rất hứng thú với lịch sử."],
+    ["數學","shùxué","N","toán học","數學是我最喜歡的課。","Toán là môn tôi thích nhất."],
+    ["書法","shūfǎ","N","thư pháp","爺爺每天寫書法。","Ông nội ngày nào cũng viết thư pháp."],
+    ["英語","yīngyǔ","N","tiếng Anh","她的英語說得很好。","Cô ấy nói tiếng Anh rất giỏi."],
+    ["作文","zuòwén","N / Vi","bài văn; viết văn","老師要我們寫一篇作文。","Thầy giáo bảo chúng tôi viết một bài văn."],
+    ["漢字","hànzì","N","chữ Hán","我覺得寫漢字很難。","Tôi thấy viết chữ Hán rất khó."],
+    ["詞","cí","N","từ, từ ngữ","這個詞是什麼意思？","Từ này nghĩa là gì?"],
+    ["文法","wénfǎ","N","ngữ pháp","中文的文法不太難。","Ngữ pháp tiếng Trung không khó lắm."],
+    ["加上","jiāshàng","V","cộng thêm, thêm vào","五加上三是八。","Năm cộng thêm ba là tám."],
+    ["減","jiǎn","Vst","trừ, giảm","十減四是六。","Mười trừ bốn là sáu."],
+    ["乘","chéng","V","nhân (phép nhân)","三乘四是十二。","Ba nhân bốn là mười hai."],
+    ["除","chú","Prep / Vst / V","chia (phép chia); ngoài, trừ ra","十除以二是五。","Mười chia hai là năm."],
+    ["國小","guóxiǎo","N","trường tiểu học (cách gọi ở Đài Loan)","我兒子今年上國小。","Con trai tôi năm nay vào tiểu học."],
+    ["中學","zhōngxué","N","trường trung học","這所中學很有名。","Trường trung học này rất nổi tiếng."],
+    ["學院","xuéyuàn","N","học viện","他在商學院念書。","Anh ấy học ở học viện thương mại."],
+    ["大學生","dàxuéshēng","N","sinh viên đại học","我妹妹是大學生。","Em gái tôi là sinh viên đại học."],
+    ["教授","jiàoshòu","N","giáo sư","王教授教我們歷史。","Giáo sư Vương dạy chúng tôi môn lịch sử."],
+    ["放假","fàngjià","V-sep","nghỉ lễ, được nghỉ","我們下個星期放假。","Tuần sau chúng tôi được nghỉ."],
+    ["春假","chūnjià","N","kỳ nghỉ xuân","春假的時候我想去旅行。","Kỳ nghỉ xuân tôi muốn đi du lịch."],
+    ["暑假","shǔjià","N","kỳ nghỉ hè","暑假你打算做什麼？","Kỳ nghỉ hè bạn định làm gì?"],
+    ["寒假","hánjià","N","kỳ nghỉ đông","寒假我要回越南。","Kỳ nghỉ đông tôi sẽ về Việt Nam."],
+    ["假","jià","N","kỳ nghỉ, ngày nghỉ phép","我明天想請一天假。","Ngày mai tôi muốn xin nghỉ một ngày."],
+    ["畢業","bìyè","Vp-sep","tốt nghiệp","我明年大學畢業。","Sang năm tôi tốt nghiệp đại học."],
+    ["學期","xuéqí","N","học kỳ","這個學期我有五門課。","Học kỳ này tôi có năm môn."],
+    ["服務","fúwù","V","phục vụ","這家餐廳的服務很好。","Nhà hàng này phục vụ rất tốt."],
+    ["室友","shìyǒu","N","bạn cùng phòng","我的室友是日本人。","Bạn cùng phòng của tôi là người Nhật."],
+    ["操場","cāochǎng","N","sân thể dục, sân vận động của trường","學生們在操場上跑步。","Học sinh đang chạy bộ trên sân thể dục."],
+    ["校園","xiàoyuán","N","khuôn viên trường","我們的校園很漂亮。","Khuôn viên trường chúng tôi rất đẹp."],
+    ["位子","wèizi","N","chỗ ngồi","這個位子有人坐嗎？","Chỗ này có ai ngồi chưa?"],
+    ["書桌","shūzhuō","N","bàn học","我的書桌上有很多書。","Trên bàn học của tôi có rất nhiều sách."],
+    ["書包","shūbāo","N","cặp sách","他的書包很重。","Cặp sách của cậu ấy rất nặng."],
+    ["書架","shūjià","N","giá sách","請把書放回書架上。","Hãy đặt sách lại lên giá."],
+    ["本子","běnzi","N","quyển vở","請把答案寫在本子上。","Hãy viết đáp án vào vở."],
+    ["尺","chǐ","N","thước kẻ","我可以借你的尺嗎？","Tôi mượn thước của bạn được không?"],
+    ["討論","tǎolùn","V","thảo luận","我們討論一下這個問題。","Chúng ta thảo luận vấn đề này một chút."],
+    ["同意","tóngyì","Vst","đồng ý","我同意你的看法。","Tôi đồng ý với quan điểm của bạn."],
+    ["了解/瞭解","liǎojiě","Vst","hiểu, hiểu rõ","我很了解他。","Tôi rất hiểu anh ấy."],
+    ["無聊","wúliáo","Vs","chán, nhàm chán","這部電影很無聊。","Bộ phim này rất chán."],
+    ["有趣","yǒuqù","Vs","thú vị","這本書很有趣。","Cuốn sách này rất thú vị."],
+    ["有意思","yǒuyìsi","Vs","thú vị, có ý nghĩa","這個故事很有意思。","Câu chuyện này rất thú vị."],
+    ["原因","yuányīn","N","nguyên nhân","你知道他沒來的原因嗎？","Bạn biết lý do anh ấy không đến không?"],
+    ["遍","biàn","M","lần, lượt (làm trọn từ đầu đến cuối)","請你再說一遍。","Bạn hãy nói lại một lần nữa."],
+    ["改","gǎi","V","sửa, thay đổi","請把錯字改過來。","Hãy sửa lại chữ sai."],
+    ["忘記","wàngjì","Vpt","quên","我忘記他的名字了。","Tôi quên tên anh ấy rồi."],
+    ["程度","chéngdù","N","trình độ, mức độ","他的中文程度很高。","Trình độ tiếng Trung của anh ấy rất cao."],
+    ["趕快","gǎnkuài","Adv","nhanh lên, mau chóng","快遲到了，趕快走吧。","Sắp muộn rồi, mau đi thôi."],
+    ["以上","yǐshàng","N","trở lên; ở trên","十八歲以上才可以進去。","Từ mười tám tuổi trở lên mới được vào."],
+    ["以下","yǐxià","N","trở xuống; dưới đây","六歲以下的小孩不用買票。","Trẻ em từ sáu tuổi trở xuống không cần mua vé."],
+    ["意見","yìjiàn","N","ý kiến","你有什麼意見？","Bạn có ý kiến gì?"],
+    ["用功","yònggōng","Vs","chăm học","她是一個很用功的學生。","Cô ấy là một học sinh rất chăm học."],
+    ["研究","yánjiù","N / V","nghiên cứu","他研究台灣歷史。","Anh ấy nghiên cứu lịch sử Đài Loan."],
+    ["教育","jiàoyù","N / V","giáo dục","父母都很關心孩子的教育。","Bố mẹ đều rất quan tâm đến việc giáo dục con cái."],
+    ["選擇","xuǎnzé","N / V","lựa chọn; sự lựa chọn","這是一個很好的選擇。","Đây là một lựa chọn rất tốt."],
+    ["建議","jiànyì","N / V","đề nghị, kiến nghị; lời khuyên","謝謝你的建議。","Cảm ơn lời khuyên của bạn."],
+    ["知識","zhīshì","N","kiến thức, tri thức","看書可以學到很多知識。","Đọc sách có thể học được nhiều kiến thức."]
+  ]},
+  {"zh":"房屋與家庭、環境","vi":"Nhà cửa, gia đình, môi trường","words":[
+    ["座","zuò","M","lượng từ cho núi, cầu, tòa nhà (ngọn, cây, tòa)","那座山很高。","Ngọn núi đó rất cao."],
+    ["臥室","wòshì","N","phòng ngủ","我的臥室在二樓。","Phòng ngủ của tôi ở tầng hai."],
+    ["臥房","wòfáng","N","phòng ngủ","這間臥房很大。","Phòng ngủ này rất rộng."],
+    ["浴室","yùshì","N","phòng tắm","浴室在臥室旁邊。","Phòng tắm ở cạnh phòng ngủ."],
+    ["院(子)","yuàn(zi)","N","sân (nhà)","院子裡有一棵樹。","Trong sân có một cái cây."],
+    ["書房","shūfáng","N","phòng đọc sách, phòng làm việc","爸爸在書房工作。","Bố đang làm việc trong phòng sách."],
+    ["洗衣機","xǐyījī","N","máy giặt","我們家的洗衣機壞了。","Máy giặt nhà chúng tôi hỏng rồi."],
+    ["餐桌","cānzhuō","N","bàn ăn","餐桌上有很多菜。","Trên bàn ăn có rất nhiều món."],
+    ["打開","dǎkāi","Vp","mở ra; bật","請打開課本第十頁。","Hãy mở sách giáo khoa trang mười."],
+    ["箱/箱(子)","xiāng/xiāng(zi)","M / N","hòm, thùng; vali","這個箱子裡是什麼？","Trong cái thùng này là gì?"],
+    ["層","céng","M","tầng, lớp","這棟大樓有二十層。","Tòa nhà này có hai mươi tầng."],
+    ["櫃(子)","guì(zi)","N","tủ","衣服都放在櫃子裡。","Quần áo đều để trong tủ."],
+    ["大門","dàmén","N","cổng chính, cửa lớn","我在學校大門等你。","Tôi đợi bạn ở cổng chính của trường."],
+    ["鄰居","línjū","N","hàng xóm","我的鄰居很客氣。","Hàng xóm của tôi rất lịch sự."],
+    ["熱鬧","rènao","Vs","náo nhiệt, nhộn nhịp","夜市很熱鬧。","Chợ đêm rất náo nhiệt."],
+    ["吵","chǎo","Vs","ồn ào; cãi nhau","外面太吵了，我睡不著。","Bên ngoài ồn quá, tôi không ngủ được."],
+    ["亂","luàn","Vs","lộn xộn, bừa bộn","你的房間太亂了。","Phòng của bạn bừa bộn quá."],
+    ["房東","fángdōng","N","chủ nhà trọ, người cho thuê nhà","我的房東人很好。","Chủ nhà trọ của tôi rất tốt."],
+    ["房屋","fángwū","N","nhà cửa, nhà ở","這裡的房屋都很新。","Nhà cửa ở đây đều rất mới."],
+    ["搬家","bānjiā","V-sep","chuyển nhà","我下個月要搬家。","Tháng sau tôi chuyển nhà."],
+    ["開水","kāishuǐ","N","nước đun sôi","請給我一杯開水。","Cho tôi xin một cốc nước đun sôi."],
+    ["鄉下","xiāngxià","N","nông thôn, quê","我的爺爺奶奶住在鄉下。","Ông bà nội tôi sống ở quê."],
+    ["傘","sǎn","N","ô, dù","外面下雨了，帶把傘吧。","Ngoài trời mưa rồi, mang ô đi."],
+    ["朵","duǒ","M","lượng từ cho hoa, mây (bông, đóa)","這朵花真漂亮。","Bông hoa này đẹp thật."],
+    ["蚊(子)","wén(zi)","N","muỗi","這裡的蚊子很多。","Ở đây rất nhiều muỗi."],
+    ["自然","zìrán","Vs","tự nhiên","她笑得很自然。","Cô ấy cười rất tự nhiên."],
+    ["月亮","yuèliàng","N","mặt trăng","今天晚上的月亮很圓。","Trăng tối nay rất tròn."],
+    ["星星","xīngxing","N","ngôi sao","天上有很多星星。","Trên trời có rất nhiều sao."],
+    ["環境","huánjìng","N","môi trường","這裡的環境很好。","Môi trường ở đây rất tốt."],
+    ["晴天","qíngtiān","N","trời nắng, ngày nắng","明天是晴天。","Ngày mai trời nắng."],
+    ["暖和","nuǎnhuo","Vs","ấm áp","今天天氣很暖和。","Hôm nay thời tiết rất ấm áp."],
+    ["涼快","liángkuài","Vs","mát mẻ","山上比較涼快。","Trên núi mát mẻ hơn."],
+    ["涼","liáng","Vs","mát, mát mẻ; nguội","菜涼了，快吃吧。","Đồ ăn nguội rồi, mau ăn đi."],
+    ["乾","gān","Vp","khô","衣服已經乾了。","Quần áo đã khô rồi."],
+    ["濕/溼","shī","Vs","ướt, ẩm","我的鞋子濕了。","Giày của tôi ướt rồi."],
+    ["度","dù","M","độ (nhiệt độ, góc)","今天台北三十度。","Hôm nay Đài Bắc ba mươi độ."],
+    ["颱風","táifēng","N","bão","明天有颱風，不用上班。","Ngày mai có bão, không phải đi làm."],
+    ["季節","jìjié","N","mùa","你最喜歡哪一個季節？","Bạn thích mùa nào nhất?"],
+    ["環保","huánbǎo","N","bảo vệ môi trường","我們都應該注意環保。","Chúng ta đều nên chú ý bảo vệ môi trường."],
+    ["垃圾","lèsè","N","rác","請不要亂丟垃圾。","Xin đừng vứt rác bừa bãi."],
+    ["汙染","wūrǎn","V","ô nhiễm","這條河被汙染了。","Con sông này bị ô nhiễm rồi."],
+    ["底","dǐ","N","đáy; cuối (tháng, năm)","我這個月底要搬家。","Cuối tháng này tôi chuyển nhà."],
+    ["底下","dǐxia","N","bên dưới, phía dưới","貓在桌子底下睡覺。","Con mèo đang ngủ dưới gầm bàn."],
+    ["內","nèi","N","bên trong, trong","請在三天內回信。","Hãy trả lời thư trong vòng ba ngày."],
+    ["深","shēn","Vs","sâu; đậm (màu)","這條河的水很深。","Nước sông này rất sâu."],
+    ["淺","qiǎn","Vs","nông, cạn; nhạt (màu)","這裡的水很淺。","Nước ở đây rất nông."]
+  ]},
+  {"zh":"日常生活","vi":"Sinh hoạt hằng ngày","words":[
+    ["發生","fāshēng","Vpt","xảy ra","昨天發生了什麼事？","Hôm qua đã xảy ra chuyện gì?"],
+    ["照顧","zhàogù","V","chăm sóc","她在家照顧孩子。","Cô ấy ở nhà chăm con."],
+    ["生活","shēnghuó","N","cuộc sống, sinh hoạt","我已經習慣台灣的生活了。","Tôi đã quen với cuộc sống ở Đài Loan rồi."],
+    ["日記","rìjì","N","nhật ký","我每天晚上寫日記。","Tối nào tôi cũng viết nhật ký."],
+    ["流","liú","V","chảy","這條河往南流。","Con sông này chảy về phía nam."],
+    ["流汗","liúhàn","V-sep","đổ mồ hôi","天氣太熱，我一直流汗。","Trời nóng quá, tôi cứ đổ mồ hôi suốt."],
+    ["夢","mèng","N","giấc mơ","我昨天晚上做了一個夢。","Tối qua tôi có một giấc mơ."],
+    ["枕頭","zhěntou","N","cái gối","這個枕頭很舒服。","Cái gối này rất êm."],
+    ["鬧鐘","nàozhōng","N","đồng hồ báo thức","我每天用鬧鐘叫我起床。","Ngày nào tôi cũng dùng đồng hồ báo thức gọi mình dậy."],
+    ["拖鞋","tuōxié","N","dép lê","進門以後請換拖鞋。","Vào nhà rồi xin hãy đổi sang dép lê."],
+    ["毛巾","máojīn","N","khăn mặt, khăn tắm","請給我一條乾淨的毛巾。","Cho tôi xin một chiếc khăn sạch."],
+    ["刷(子)/刷","shuā(zi)/shuā","N / V","bàn chải; chải, đánh (răng)","睡覺以前要刷牙。","Trước khi ngủ phải đánh răng."],
+    ["肥皂","féizào","N","xà phòng","請用肥皂洗手。","Hãy rửa tay bằng xà phòng."],
+    ["牙膏","yágāo","N","kem đánh răng","牙膏快用完了。","Kem đánh răng sắp hết rồi."],
+    ["衛生紙","wèishēngzhǐ","N","giấy vệ sinh","洗手間裡沒有衛生紙了。","Trong nhà vệ sinh hết giấy rồi."],
+    ["籃(子)","lán(zi)","N","cái giỏ, cái rổ","籃子裡有很多水果。","Trong giỏ có rất nhiều hoa quả."]
+  ]},
+  {"zh":"閒暇時間、娛樂","vi":"Thời gian rảnh, giải trí","words":[
+    ["假日","jiàrì","N","ngày nghỉ, ngày lễ","假日的時候這裡人很多。","Ngày nghỉ ở đây rất đông người."],
+    ["結束","jiéshù","Vp","kết thúc","比賽已經結束了。","Trận đấu đã kết thúc rồi."],
+    ["完","wán","Vp","xong, hết","我的作業寫完了。","Bài tập của tôi viết xong rồi."],
+    ["散步","sànbù","V-sep","đi dạo, tản bộ","吃完晚飯，我們去散步吧。","Ăn tối xong chúng ta đi dạo nhé."],
+    ["慢跑","mànpǎo","Vi","chạy bộ chậm (jogging)","我每天早上去公園慢跑。","Sáng nào tôi cũng ra công viên chạy bộ."],
+    ["野餐","yěcān","Vi","dã ngoại, picnic","這個週末我們去野餐吧。","Cuối tuần này chúng ta đi dã ngoại nhé."],
+    ["爬","pá","Vi","leo, trèo; bò","我們星期天去爬山。","Chủ nhật chúng tôi đi leo núi."],
+    ["拍","pāi","V","vỗ, đập; chụp (ảnh), quay (phim)","這張照片拍得很好。","Tấm ảnh này chụp rất đẹp."],
+    ["抓","zhuā","V","bắt, nắm, tóm","貓抓到了一隻鳥。","Con mèo bắt được một con chim."],
+    ["座位","zuòwèi","N","chỗ ngồi","這是你的座位嗎？","Đây là chỗ ngồi của bạn à?"],
+    ["新聞","xīnwén","N","tin tức, thời sự","爸爸每天晚上看新聞。","Tối nào bố cũng xem thời sự."],
+    ["體育","tǐyù","N","thể dục, thể thao","我最喜歡上體育課。","Tôi thích học giờ thể dục nhất."],
+    ["經常","jīngcháng","Adv","thường xuyên","他經常去圖書館。","Anh ấy thường xuyên đến thư viện."],
+    ["雜誌","zázhì","N","tạp chí","我買了一本雜誌。","Tôi đã mua một cuốn tạp chí."],
+    ["美術","měishù","N","mỹ thuật","她在大學學美術。","Cô ấy học mỹ thuật ở đại học."],
+    ["畫家","huàjiā","N","họa sĩ","他是一位有名的畫家。","Ông ấy là một họa sĩ nổi tiếng."],
+    ["興趣","xìngqù","N","hứng thú, sở thích","我對音樂很有興趣。","Tôi rất hứng thú với âm nhạc."],
+    ["收","shōu","V","nhận, thu; cất, dọn","我收到你的信了。","Tôi nhận được thư của bạn rồi."],
+    ["談","tán","V","nói chuyện, bàn bạc","我想跟你談一件事。","Tôi muốn nói với bạn một việc."],
+    ["聊","liáo","V","trò chuyện, tán gẫu","我們聊了很久。","Chúng tôi đã trò chuyện rất lâu."],
+    ["遲到","chídào","Vp","đến muộn, đi trễ","對不起，我遲到了。","Xin lỗi, tôi đến muộn."],
+    ["樂器","yuèqì","N","nhạc cụ","你會什麼樂器？","Bạn biết chơi nhạc cụ gì?"],
+    ["吉他","jítā","N","đàn ghi-ta","他會彈吉他。","Anh ấy biết chơi ghi-ta."],
+    ["可怕","kěpà","Vs","đáng sợ","這部電影很可怕。","Bộ phim này rất đáng sợ."],
+    ["輕鬆","qīngsōng","Vs","thoải mái, nhẹ nhàng, thư giãn","週末我想輕鬆一下。","Cuối tuần tôi muốn thư giãn một chút."],
+    ["情形","qíngxíng","N","tình hình","請告訴我現在的情形。","Hãy cho tôi biết tình hình hiện tại."],
+    ["消息","xiāoxí","N","tin tức, tin","我有一個好消息要告訴你。","Tôi có một tin vui muốn báo cho bạn."],
+    ["看起來","kànqǐlái","Adv","trông có vẻ","你看起來很累。","Trông bạn có vẻ mệt."],
+    ["舞","wǔ","N","điệu múa, điệu nhảy","她跳的舞很好看。","Điệu múa cô ấy nhảy rất đẹp."],
+    ["游","yóu","Vi","bơi","他游得很快。","Anh ấy bơi rất nhanh."],
+    ["游泳池","yóuyǒngchí","N","bể bơi, hồ bơi","學校裡有一個游泳池。","Trong trường có một bể bơi."],
+    ["遊戲","yóuxì","N / Vi","trò chơi; chơi đùa","孩子們在玩遊戲。","Bọn trẻ đang chơi trò chơi."],
+    ["茶館/茶館兒","cháguǎn/cháguǎnr","N","quán trà","我們在茶館喝茶聊天。","Chúng tôi uống trà trò chuyện ở quán trà."],
+    ["門票","ménpiào","N","vé vào cửa","門票一張兩百塊。","Vé vào cửa hai trăm tệ một vé."]
+  ]},
+  {"zh":"與他人的關係","vi":"Quan hệ với người khác","words":[
+    ["陪","péi","V","đi cùng, ở bên, bầu bạn","我陪媽媽去買菜。","Tôi đi mua rau cùng mẹ."],
+    ["利用","lìyòng","V","lợi dụng, tận dụng","我利用週末學中文。","Tôi tận dụng cuối tuần để học tiếng Trung."],
+    ["好處","hǎochù","N","lợi ích, điểm tốt","運動對身體有很多好處。","Tập thể dục có nhiều lợi ích cho cơ thể."],
+    ["壞處","huàichù","N","tác hại, điểm xấu","太晚睡覺有很多壞處。","Ngủ quá muộn có nhiều tác hại."],
+    ["目的","mùdì","N","mục đích","你來台灣的目的是什麼？","Mục đích bạn đến Đài Loan là gì?"],
+    ["要求","yāoqiú","N / V","yêu cầu","老師的要求很高。","Yêu cầu của thầy giáo rất cao."],
+    ["合作","hézuò","Vs","hợp tác","我們一起合作吧。","Chúng ta cùng hợp tác nhé."],
+    ["主人","zhǔrén","N","chủ nhân, chủ (người tiếp khách)","主人請我們喝茶。","Chủ nhà mời chúng tôi uống trà."],
+    ["請客","qǐngkè","V-sep","mời khách, đãi (bao ăn)","今天我請客。","Hôm nay tôi mời."],
+    ["約","yuē","V","hẹn, hẹn trước","我跟朋友約了明天見面。","Tôi đã hẹn bạn ngày mai gặp nhau."],
+    ["約會","yuēhuì","N / Vi","cuộc hẹn; hẹn hò","我今天晚上有一個約會。","Tối nay tôi có một cuộc hẹn."],
+    ["派對","pàiduì","N","bữa tiệc (party)","你要來我的生日派對嗎？","Bạn có đến tiệc sinh nhật của tôi không?"],
+    ["祝","zhù","V","chúc","祝你生日快樂！","Chúc bạn sinh nhật vui vẻ!"],
+    ["留","liú","V","ở lại; để lại, giữ lại","你留在這裡等我。","Bạn ở lại đây đợi tôi."],
+    ["封","fēng","M","lượng từ cho thư (bức, lá)","我寫了一封信給父母。","Tôi đã viết một lá thư cho bố mẹ."],
+    ["信箱","xìnxiāng","N","hòm thư, hộp thư","信箱裡有你的信。","Trong hòm thư có thư của bạn."],
+    ["郵票","yóupiào","N","tem thư","我要買三張郵票。","Tôi muốn mua ba con tem."],
+    ["回信","huíxìn","V-sep","hồi âm, trả lời thư","他還沒給我回信。","Anh ấy vẫn chưa trả lời thư tôi."],
+    ["郵件","yóujiàn","N","thư từ, bưu phẩm","我今天收到很多郵件。","Hôm nay tôi nhận được rất nhiều thư."],
+    ["弄","nòng","V","làm, khiến cho; nghịch","對不起，我把你的書弄髒了。","Xin lỗi, tôi làm bẩn sách của bạn rồi."],
+    ["放心","fàngxīn","Vs-sep","yên tâm","請放心，我會照顧他。","Bạn yên tâm, tôi sẽ chăm sóc cậu ấy."],
+    ["偷","tōu","V","trộm, lấy cắp","我的腳踏車被偷了。","Xe đạp của tôi bị trộm mất rồi."],
+    ["滿","mǎn","Vp","đầy","杯子裡的水滿了。","Nước trong cốc đầy rồi."],
+    ["丟","diū","V","vứt, ném; đánh mất","請不要亂丟東西。","Xin đừng vứt đồ bừa bãi."],
+    ["換","huàn","V","đổi, thay","我想換一件大一點的。","Tôi muốn đổi một chiếc to hơn một chút."],
+    ["一塊/一塊兒","yīkuài/yīkuàir","Adv","cùng nhau","我們一塊兒去吧。","Chúng ta cùng đi nhé."],
+    ["同時","tóngshí","N","đồng thời, cùng lúc","他們兩個人同時到了。","Hai người họ đến cùng lúc."],
+    ["保護","bǎohù","V","bảo vệ","我們要保護環境。","Chúng ta phải bảo vệ môi trường."],
+    ["出門","chūmén","V-sep","ra ngoài, đi ra khỏi nhà","我每天七點出門。","Ngày nào tôi cũng ra khỏi nhà lúc bảy giờ."],
+    ["現代","xiàndài","N / Vs","hiện đại; thời nay","現代人的生活很忙。","Cuộc sống của người thời nay rất bận rộn."],
+    ["傳統","chuántǒng","Vs","truyền thống","這是我們的傳統文化。","Đây là văn hóa truyền thống của chúng tôi."],
+    ["除夕","chúxì","N","đêm giao thừa","除夕晚上全家人一起吃飯。","Đêm giao thừa cả nhà cùng ăn cơm."],
+    ["春節","chūnjié","N","Tết Nguyên đán","春節你回家嗎？","Tết Nguyên đán bạn có về nhà không?"],
+    ["節日","jiérì","N","ngày lễ, ngày tết","春節是最重要的節日。","Tết Nguyên đán là ngày lễ quan trọng nhất."],
+    ["帶來","dàilái","V","mang đến, đem lại","他給我們帶來了好消息。","Anh ấy mang đến cho chúng tôi tin vui."],
+    ["當中","dāngzhōng","N","ở giữa, trong số","我們當中他最高。","Trong số chúng tôi anh ấy cao nhất."],
+    ["法律","fǎlǜ","N","pháp luật","我哥哥在大學念法律。","Anh trai tôi học luật ở đại học."],
+    ["方面","fāngmiàn","N","phương diện, mặt","他在這方面很有經驗。","Về mặt này anh ấy rất có kinh nghiệm."],
+    ["開玩笑","kāiwánxiào","V-sep","nói đùa, đùa giỡn","別生氣，我只是開玩笑。","Đừng giận, tôi chỉ đùa thôi."],
+    ["可惜","kěxí","Vs","đáng tiếc","你不能來，真可惜。","Bạn không đến được, tiếc thật."],
+    ["老太太","lǎotàitai","N","bà cụ, cụ bà","那位老太太是我的鄰居。","Bà cụ ấy là hàng xóm của tôi."],
+    ["有名","yǒumíng","Vs","nổi tiếng","這家餐廳很有名。","Nhà hàng này rất nổi tiếng."],
+    ["自由","zìyóu","N / Vs","tự do","我喜歡自由的生活。","Tôi thích cuộc sống tự do."],
+    ["社會","shèhuì","N","xã hội","我們都是社會的一部分。","Chúng ta đều là một phần của xã hội."]
+  ]},
+  {"zh":"旅行","vi":"Du lịch","words":[
+    ["時差","shíchā","N","chênh lệch múi giờ","台灣和越南有一個小時的時差。","Đài Loan và Việt Nam chênh nhau một tiếng."],
+    ["市區","shìqū","N","nội thành, khu trung tâm thành phố","我家離市區很遠。","Nhà tôi cách khu trung tâm rất xa."],
+    ["溫泉","wēnquán","N","suối nước nóng","冬天去洗溫泉很舒服。","Mùa đông đi tắm suối nước nóng rất dễ chịu."],
+    ["公路","gōnglù","N","đường quốc lộ, đường cái","這條公路很長。","Con đường quốc lộ này rất dài."],
+    ["速度","sùdù","N","tốc độ","這班火車的速度很快。","Tốc độ của chuyến tàu này rất nhanh."],
+    ["到處","dàochù","Adv","khắp nơi","夜市裡到處都是人。","Trong chợ đêm đâu đâu cũng là người."],
+    ["地點","dìdiǎn","N","địa điểm","開會的地點在哪裡？","Địa điểm họp ở đâu?"],
+    ["巴士","bāshì","N","xe buýt","我們坐巴士去機場。","Chúng tôi đi xe buýt ra sân bay."],
+    ["加油","jiāyóu","Vi","đổ xăng; cố lên","車子快沒油了，要去加油。","Xe sắp hết xăng rồi, phải đi đổ xăng."],
+    ["摩托車/機車","mótuōchē/jīchē","N","xe máy","很多台灣人騎機車上班。","Rất nhiều người Đài Loan đi làm bằng xe máy."],
+    ["船/船兒","chuán/chuánr","N","thuyền, tàu thủy","我們坐船過河。","Chúng tôi đi thuyền qua sông."],
+    ["地鐵","dìtiě","N","tàu điện ngầm","我每天坐地鐵上班。","Ngày nào tôi cũng đi tàu điện ngầm đi làm."],
+    ["捷運","jiéyùn","N","tàu điện MRT (Đài Loan)","坐捷運去比較快。","Đi MRT thì nhanh hơn."],
+    ["停車場","tíngchēchǎng","N","bãi đỗ xe","請問停車場在哪裡？","Xin hỏi bãi đỗ xe ở đâu?"],
+    ["月台","yuètái","N","sân ga (nơi lên xuống tàu)","火車在第二月台。","Tàu ở sân ga số hai."],
+    ["搭","dā","V","đi, đáp (xe, tàu, máy bay)","我搭公車去學校。","Tôi đi xe buýt đến trường."],
+    ["飛","fēi","Vi","bay","鳥在天上飛。","Chim bay trên trời."],
+    ["下","xià","V","xuống (xe, lầu); rơi (mưa, tuyết)","我要在台北車站下車。","Tôi sẽ xuống xe ở ga Đài Bắc."],
+    ["上","shàng","V","lên (xe, lầu); đi (học, làm)","快上車吧！","Mau lên xe đi!"],
+    ["這些","zhèxiē","Det","những cái này","這些書都是我的。","Những cuốn sách này đều là của tôi."],
+    ["那些","nàxiē","Det","những cái kia","那些人是誰？","Những người kia là ai?"],
+    ["東方","dōngfāng","N","phương Đông","太陽從東方出來。","Mặt trời mọc ở phương Đông."],
+    ["非洲","fēizhōu","N","châu Phi","我沒去過非洲。","Tôi chưa từng đến châu Phi."],
+    ["美洲","měizhōu","N","châu Mỹ","他想去美洲旅行。","Anh ấy muốn đi du lịch châu Mỹ."],
+    ["歐洲","ōuzhōu","N","châu Âu","我明年要去歐洲念書。","Sang năm tôi sẽ sang châu Âu học."],
+    ["亞洲","yàzhōu","N","châu Á","越南和台灣都在亞洲。","Việt Nam và Đài Loan đều ở châu Á."],
+    ["大陸","dàlù","N","đại lục, lục địa","亞洲是世界上最大的大陸。","Châu Á là lục địa lớn nhất thế giới."],
+    ["動","dòng","Vp","động, cử động, di chuyển","請站好，不要動。","Hãy đứng yên, đừng cử động."],
+    ["起","qǐ","Ptc","bổ ngữ chỉ hướng lên hoặc sự bắt đầu (拿起, 想起)","他拿起電話就走了。","Anh ấy cầm điện thoại lên rồi đi luôn."],
+    ["停","tíng","Vp","dừng, đỗ","雨停了。","Mưa tạnh rồi."],
+    ["中心","zhōngxīn","N","trung tâm","我家在市中心。","Nhà tôi ở trung tâm thành phố."],
+    ["簽證","qiānzhèng","N","thị thực, visa","去那個國家需要簽證。","Đến nước đó cần visa."],
+    ["行李","xínglǐ","N","hành lý","你的行李多不多？","Hành lý của bạn có nhiều không?"],
+    ["背包","bēibāo","N","ba lô","他背著一個大背包。","Anh ấy đeo một chiếc ba lô to."],
+    ["鎖","suǒ","N / V","ổ khóa; khóa lại","出門以前要把門鎖好。","Trước khi ra ngoài phải khóa cửa cẩn thận."],
+    ["入口","rùkǒu","N","lối vào","我在入口等你。","Tôi đợi bạn ở lối vào."],
+    ["出口","chūkǒu","N","lối ra; xuất khẩu","請問出口在哪裡？","Xin hỏi lối ra ở đâu?"],
+    ["油","yóu","N","dầu; xăng","這道菜的油太多了。","Món này nhiều dầu quá."],
+    ["鑰匙","yàoshi","N","chìa khóa","我忘了帶鑰匙。","Tôi quên mang chìa khóa."],
+    ["方向","fāngxiàng","N","phương hướng, hướng","我們走錯方向了。","Chúng ta đi nhầm hướng rồi."],
+    ["交通","jiāotōng","N","giao thông","這裡的交通很方便。","Giao thông ở đây rất thuận tiện."],
+    ["標準","biāozhǔn","N / Vs","tiêu chuẩn; chuẩn","他的中文發音很標準。","Phát âm tiếng Trung của anh ấy rất chuẩn."],
+    ["拍照","pāizhào","V-sep","chụp ảnh","我們在這裡拍照吧。","Chúng ta chụp ảnh ở đây đi."]
+  ]},
+  {"zh":"健康及身體照護","vi":"Sức khỏe, chăm sóc cơ thể","words":[
+    ["腿","tuǐ","N","chân (đùi và cẳng chân)","走了一天，我的腿好痛。","Đi cả ngày, chân tôi đau quá."],
+    ["背","bèi","N","lưng","我的背很痛。","Lưng tôi rất đau."],
+    ["脖(子)","bó(zi)","N","cổ","我的脖子不太舒服。","Cổ tôi không được thoải mái lắm."],
+    ["汗","hàn","N","mồ hôi","他跑得一身都是汗。","Anh ấy chạy đến mức người đầy mồ hôi."],
+    ["臉色","liǎnsè","N","sắc mặt","你的臉色不太好。","Sắc mặt bạn không được tốt lắm."],
+    ["救護車","jiùhùchē","N","xe cứu thương","快叫救護車！","Mau gọi xe cứu thương!"],
+    ["咳嗽","késòu","Vi","ho","我咳嗽咳了三天了。","Tôi ho ba ngày rồi."],
+    ["發燒","fāshāo","Vp-sep","sốt","他發燒了，要去看醫生。","Cậu ấy sốt rồi, phải đi khám bác sĩ."],
+    ["頭痛","tóutòng","Vs","đau đầu","我今天有一點頭痛。","Hôm nay tôi hơi đau đầu."],
+    ["疼","téng","Vs","đau","我的牙很疼。","Răng tôi rất đau."],
+    ["保險","bǎoxiǎn","N","bảo hiểm","你有健康保險嗎？","Bạn có bảo hiểm y tế không?"],
+    ["掛號","guàhào","V-sep","đăng ký khám bệnh; gửi bảo đảm","看病以前要先掛號。","Trước khi khám bệnh phải đăng ký trước."],
+    ["牙刷","yáshuā","N","bàn chải đánh răng","我忘了帶牙刷。","Tôi quên mang bàn chải đánh răng."],
+    ["藥房","yàofáng","N","hiệu thuốc","我去藥房買藥。","Tôi đến hiệu thuốc mua thuốc."],
+    ["救命","jiùmìng","V-sep","cứu mạng; cứu tôi với!","救命啊！有人掉到水裡了！","Cứu với! Có người rơi xuống nước rồi!"],
+    ["影響","yǐngxiǎng","N / V","ảnh hưởng","天氣影響了我們的計畫。","Thời tiết đã ảnh hưởng đến kế hoạch của chúng tôi."],
+    ["感覺","gǎnjué","N / Vst","cảm giác; cảm thấy","我感覺有一點冷。","Tôi cảm thấy hơi lạnh."],
+    ["精神","jīngshén","N","tinh thần","你今天精神很好。","Hôm nay tinh thần bạn rất tốt."],
+    ["正常","zhèngcháng","Vs","bình thường","醫生說我的身體很正常。","Bác sĩ nói cơ thể tôi rất bình thường."]
+  ]},
+  {"zh":"購物","vi":"Mua sắm","words":[
+    ["花","huā","V","tiêu, tốn (tiền, thời gian)","我這個月花了很多錢。","Tháng này tôi đã tiêu rất nhiều tiền."],
+    ["有錢","yǒuqián","Vs","giàu, có tiền","他家很有錢。","Nhà anh ấy rất giàu."],
+    ["生意","shēngyì","N","việc buôn bán, kinh doanh","這家店的生意很好。","Cửa hàng này buôn bán rất tốt."],
+    ["商人","shāngrén","N","thương nhân, người buôn bán","他父親是商人。","Bố anh ấy là thương nhân."],
+    ["老闆娘/老板娘","lǎobǎnniáng","N","bà chủ","老闆娘做的菜很好吃。","Món bà chủ nấu rất ngon."],
+    ["店員","diànyuán","N","nhân viên cửa hàng","那個店員很客氣。","Nhân viên cửa hàng đó rất lịch sự."],
+    ["訂","dìng","V","đặt trước (vé, phòng, hàng)","我想訂一個房間。","Tôi muốn đặt một phòng."],
+    ["訂位","dìngwèi","V-sep","đặt chỗ, đặt bàn","我想訂位，晚上七點，四個人。","Tôi muốn đặt bàn, bảy giờ tối, bốn người."],
+    ["得到","dédào","Vpt","nhận được, đạt được","他得到了第一名。","Anh ấy đã đạt hạng nhất."],
+    ["困難","kùnnán","N / Vs","khó khăn","如果有困難，請告訴我。","Nếu có khó khăn hãy nói với tôi."],
+    ["百貨公司","bǎihuògōngsī","N","trung tâm thương mại, cửa hàng bách hóa","我們去百貨公司買衣服。","Chúng tôi đến trung tâm thương mại mua quần áo."],
+    ["夜市","yèshì","N","chợ đêm","台灣的夜市很有名。","Chợ đêm Đài Loan rất nổi tiếng."],
+    ["逛","guàng","V","đi dạo, đi xem (cửa hàng)","我們去逛夜市吧。","Chúng ta đi dạo chợ đêm đi."],
+    ["逛街","guàngjiē","V-sep","dạo phố, đi mua sắm","我週末喜歡跟朋友逛街。","Cuối tuần tôi thích đi dạo phố với bạn bè."],
+    ["排隊","páiduì","V-sep","xếp hàng","買票的人請排隊。","Ai mua vé xin hãy xếp hàng."],
+    ["客滿","kèmǎn","Vp","hết chỗ, kín khách","對不起，今天晚上客滿了。","Xin lỗi, tối nay hết chỗ rồi."],
+    ["刷卡","shuākǎ","V-sep","quẹt thẻ","這裡可以刷卡嗎？","Ở đây quẹt thẻ được không?"],
+    ["提","tí","V","xách; nhắc đến, đề cập","我幫你提行李吧。","Để tôi xách hành lý giúp bạn."],
+    ["流行","liúxíng","Vs","thịnh hành, hợp mốt","這種衣服現在很流行。","Kiểu quần áo này hiện rất thịnh hành."],
+    ["藍色","lánsè","N","màu xanh lam, màu xanh dương","他穿著一件藍色的上衣。","Anh ấy mặc một chiếc áo màu xanh lam."],
+    ["綠色","lǜsè","N","màu xanh lá cây","春天的山是綠色的。","Núi mùa xuân có màu xanh lá."],
+    ["紅色","hóngsè","N","màu đỏ","過年的時候大家喜歡穿紅色的衣服。","Dịp Tết mọi người thích mặc quần áo màu đỏ."],
+    ["黑色","hēisè","N","màu đen","我有一隻黑色的貓。","Tôi có một con mèo màu đen."],
+    ["毛衣","máoyī","N","áo len","這件毛衣很暖和。","Chiếc áo len này rất ấm."],
+    ["雨衣","yǔyī","N","áo mưa","下雨了，穿上雨衣吧。","Mưa rồi, mặc áo mưa vào đi."],
+    ["內衣","nèiyī","N","đồ lót, áo lót","這家店賣內衣和襪子。","Cửa hàng này bán đồ lót và tất."],
+    ["上衣","shàngyī","N","áo (mặc ở thân trên)","這件上衣多少錢？","Chiếc áo này bao nhiêu tiền?"],
+    ["皮鞋","píxié","N","giày da","上班要穿皮鞋。","Đi làm phải đi giày da."],
+    ["手套","shǒutào","N","găng tay","冬天騎車要戴手套。","Mùa đông đi xe phải đeo găng tay."],
+    ["口袋","kǒudài","N","túi áo, túi quần","我的手機在口袋裡。","Điện thoại của tôi ở trong túi."],
+    ["小費","xiǎofèi","N","tiền boa","在台灣吃飯不用給小費。","Ở Đài Loan đi ăn không cần đưa tiền boa."],
+    ["打折","dǎzhé","V-sep","giảm giá","這些衣服現在打折。","Những bộ quần áo này đang giảm giá."],
+    ["零錢","língqián","N","tiền lẻ","我沒有零錢。","Tôi không có tiền lẻ."],
+    ["零用錢","língyòngqián","N","tiền tiêu vặt","媽媽每個星期給我零用錢。","Tuần nào mẹ cũng cho tôi tiền tiêu vặt."],
+    ["存","cún","V","gửi tiết kiệm, để dành; lưu","我每個月存五千塊。","Mỗi tháng tôi để dành năm nghìn tệ."],
+    ["毛","máo","M","hào (1/10 đồng, đơn vị tiền)","這個東西五毛錢。","Món này giá năm hào."],
+    ["高級","gāojí","Vs","cao cấp","這是一家高級餐廳。","Đây là một nhà hàng cao cấp."],
+    ["一般","yībān","Vs","thông thường, bình thường","一般人不知道這件事。","Người bình thường không biết chuyện này."],
+    ["合適","héshì","Vs","phù hợp, thích hợp","這雙鞋的大小很合適。","Cỡ đôi giày này rất vừa."],
+    ["適合","shìhé","Vst","hợp với, thích hợp","這件衣服很適合你。","Chiếc áo này rất hợp với bạn."],
+    ["圓","yuán","Vs","tròn","他的臉圓圓的。","Mặt cậu ấy tròn tròn."],
+    ["光","guāng","Vp","hết sạch, không còn gì (用光, 吃光)","我的錢用光了。","Tiền của tôi tiêu hết sạch rồi."],
+    ["死","sǐ","Vp","chết","我的小魚死了。","Con cá nhỏ của tôi chết rồi."],
+    ["髒","zāng","Vs","bẩn","你的手很髒，快去洗。","Tay bạn bẩn lắm, mau đi rửa đi."],
+    ["破","pò","Vp","rách, vỡ, thủng","我的褲子破了。","Quần của tôi rách rồi."],
+    ["袋","dài","M","túi, bao (lượng từ)","我買了一袋米。","Tôi đã mua một bao gạo."],
+    ["套","tào","M","bộ (lượng từ cho quần áo, sách)","他買了一套新衣服。","Anh ấy đã mua một bộ quần áo mới."]
+  ]},
+  {"zh":"飲食","vi":"Ăn uống","words":[
+    ["沙拉","shālā","N","salad","我想點一份沙拉。","Tôi muốn gọi một phần salad."],
+    ["牛排","niúpái","N","bít tết","這家餐廳的牛排很有名。","Bít tết của nhà hàng này rất nổi tiếng."],
+    ["海鮮","hǎixiān","N","hải sản","我很喜歡吃海鮮。","Tôi rất thích ăn hải sản."],
+    ["火腿","huǒtuǐ","N","giăm bông","我要一個火腿三明治。","Cho tôi một bánh sandwich giăm bông."],
+    ["熱狗","règǒu","N","xúc xích kẹp bánh mì (hot dog)","孩子們都喜歡吃熱狗。","Bọn trẻ đều thích ăn hot dog."],
+    ["饅頭","mántou","N","bánh màn thầu","我早餐吃饅頭和豆漿。","Bữa sáng tôi ăn màn thầu với sữa đậu nành."],
+    ["米","mǐ","N","gạo","家裡沒有米了。","Nhà hết gạo rồi."],
+    ["豆腐","dòufu","N","đậu phụ","我喜歡吃媽媽做的豆腐。","Tôi thích ăn đậu phụ mẹ làm."],
+    ["橘(子)","jú(zi)","N","quýt","這些橘子很甜。","Những quả quýt này rất ngọt."],
+    ["葡萄","pútao","N","nho","這些葡萄有一點酸。","Chỗ nho này hơi chua."],
+    ["芒果","mángguǒ","N","xoài","台灣的芒果很好吃。","Xoài Đài Loan rất ngon."],
+    ["烏龍茶","wūlóngchá","N","trà ô long","我想喝一杯烏龍茶。","Tôi muốn uống một cốc trà ô long."],
+    ["豆漿","dòujiāng","N","sữa đậu nành","我每天早上喝豆漿。","Sáng nào tôi cũng uống sữa đậu nành."],
+    ["可樂","kělè","N","coca, nước cola","我要一杯可樂，不要冰塊。","Cho tôi một cốc coca, không đá."],
+    ["奶茶","nǎichá","N","trà sữa","台灣的奶茶很有名。","Trà sữa Đài Loan rất nổi tiếng."],
+    ["汽水","qìshuǐ","N","nước ngọt có ga","小孩子不要喝太多汽水。","Trẻ con đừng uống quá nhiều nước ngọt có ga."],
+    ["冰塊/冰塊兒","bīngkuài/bīngkuàir","N","đá viên","請不要加冰塊。","Xin đừng cho đá."],
+    ["甜點","tiándiǎn","N","món tráng miệng, đồ ngọt","吃完飯以後，我們吃甜點吧。","Ăn cơm xong chúng ta ăn tráng miệng nhé."],
+    ["餅乾","bǐnggān","N","bánh quy","這種餅乾很好吃。","Loại bánh quy này rất ngon."],
+    ["鹽","yán","N","muối","這個湯要加一點鹽。","Canh này cần thêm một chút muối."],
+    ["味/味兒","wèi/wèir","N","mùi, vị","這個菜有一種特別的味兒。","Món này có một mùi vị đặc biệt."],
+    ["聞","wén","V","ngửi","你聞，這朵花好香。","Bạn ngửi xem, bông hoa này thơm quá."],
+    ["臭","chòu","Vs","hôi, thối","這個垃圾很臭。","Chỗ rác này rất hôi."],
+    ["口","kǒu","M","miếng, ngụm (lượng từ); nhân khẩu","我只喝了一口水。","Tôi chỉ uống một ngụm nước."],
+    ["罐","guàn","M","lon, hũ (lượng từ)","我買了兩罐可樂。","Tôi đã mua hai lon coca."],
+    ["顆","kē","M","lượng từ cho vật tròn nhỏ (hạt, quả, viên)","我吃了一顆蘋果。","Tôi đã ăn một quả táo."],
+    ["任何","rènhé","Det","bất kỳ, bất cứ","你有任何問題都可以問我。","Bạn có bất kỳ câu hỏi nào cũng có thể hỏi tôi."],
+    ["許多","xǔduō","Det","rất nhiều","公園裡有許多人。","Trong công viên có rất nhiều người."],
+    ["新鮮","xīnxian","Vs","tươi, tươi mới","這些水果很新鮮。","Chỗ hoa quả này rất tươi."],
+    ["熟","shóu","Vs","chín; quen thuộc","肉還沒熟。","Thịt vẫn chưa chín."],
+    ["炒","chǎo","V","xào","媽媽在炒菜。","Mẹ đang xào rau."],
+    ["炸","zhá","V","chiên, rán ngập dầu","我喜歡吃炸雞。","Tôi thích ăn gà rán."],
+    ["嚐/嘗","cháng","V","nếm, thử (món ăn)","你嚐一下這道菜。","Bạn nếm thử món này xem."],
+    ["裝","zhuāng","V","đựng, chứa; lắp đặt","這個箱子裝不下這麼多書。","Cái thùng này không đựng hết được ngần này sách."]
+  ]},
+  {"zh":"其他","vi":"Từ khác","words":[
+    ["不用","bùyòng","Adv","không cần","明天不用上課。","Ngày mai không phải đi học."],
+    ["不但","bùdàn","Conj","không những","他不但會說中文，而且會說日文。","Anh ấy không những biết nói tiếng Trung mà còn biết nói tiếng Nhật."],
+    ["不必","bùbì","Vaux","không cần, không cần phải","你不必擔心。","Bạn không cần phải lo."],
+    ["不得了","bùdéliǎo","Vs","vô cùng, ghê gớm; nguy to","他高興得不得了。","Anh ấy vui vô cùng."],
+    ["不管","bùguǎn","Conj","bất kể, dù cho","不管天氣怎麼樣，我都要去。","Bất kể thời tiết thế nào, tôi cũng sẽ đi."],
+    ["只好","zhǐhǎo","Adv","đành phải","沒有公車了，我只好走路回家。","Hết xe buýt rồi, tôi đành phải đi bộ về nhà."],
+    ["或","huò","Conj","hoặc","你可以打電話或寫信給我。","Bạn có thể gọi điện hoặc viết thư cho tôi."],
+    ["可能","kěnéng","N","khả năng","明天有下雨的可能。","Ngày mai có khả năng mưa."],
+    ["而且","érqiě","Conj","hơn nữa, mà còn","這家店的東西便宜，而且很好吃。","Đồ ở quán này rẻ, mà lại rất ngon."],
+    ["原來","yuánlái","Adv","hóa ra; vốn dĩ","原來你是越南人！","Hóa ra bạn là người Việt Nam!"],
+    ["也許","yěxǔ","Adv","có lẽ","他也許明天會來。","Có lẽ ngày mai anh ấy sẽ đến."],
+    ["必須","bìxū","Adv","phải, nhất định phải","你必須在九點以前到。","Bạn phải đến trước chín giờ."],
+    ["多麼","duōme","Adv","biết bao, đến mức nào","這裡的風景多麼美啊！","Phong cảnh ở đây đẹp biết bao!"],
+    ["這樣","zhèyàng","Vs","như thế này, như vậy","這樣做比較快。","Làm thế này thì nhanh hơn."],
+    ["那樣","nàyàng","Adv / Vs","như thế kia, như vậy","你不應該那樣說話。","Bạn không nên nói như thế."],
+    ["等/等等","děng/děngděng","Ptc","vân vân","我買了蘋果、葡萄、芒果等等。","Tôi đã mua táo, nho, xoài, vân vân."],
+    ["別的","biéde","Det","cái khác, khác","你還要別的東西嗎？","Bạn còn cần thứ gì khác không?"],
+    ["除了","chúle","Prep","ngoài… ra, trừ","除了中文，我還會說英文。","Ngoài tiếng Trung, tôi còn biết nói tiếng Anh."],
+    ["從來","cónglái","Adv","từ trước đến nay","我從來沒吃過這種水果。","Từ trước đến nay tôi chưa từng ăn loại quả này."],
+    ["大概","dàgài","Adv","khoảng, đại khái; có lẽ","從這裡到車站大概要十分鐘。","Từ đây đến nhà ga mất khoảng mười phút."],
+    ["還好","háihǎo","Adv","cũng được, tạm ổn; may mà","還好今天沒下雨。","May mà hôm nay không mưa."],
+    ["極","jí","Adv","cực kỳ, vô cùng","這家店的東西好吃極了。","Đồ ăn ở quán này ngon cực kỳ."],
+    ["接著","jiēzhe","Adv","tiếp theo, tiếp đó","他吃完飯，接著就去上班了。","Anh ấy ăn cơm xong, tiếp đó đi làm luôn."],
+    ["結果","jiéguǒ","Conj","kết quả là, rốt cuộc","我等了他一個小時，結果他沒來。","Tôi đợi anh ấy một tiếng, rốt cuộc anh ấy không đến."],
+    ["立刻","lìkè","Adv","ngay lập tức","請你立刻到辦公室來。","Bạn hãy đến văn phòng ngay lập tức."],
+    ["沒想到","méixiǎngdào","","không ngờ","沒想到你也在這裡。","Không ngờ bạn cũng ở đây."],
+    ["其實","qíshí","Adv","thật ra","其實我不太喜歡吃辣。","Thật ra tôi không thích ăn cay lắm."],
+    ["其中","qízhōng","Det","trong đó, trong số đó","我有三個哥哥，其中一個是醫生。","Tôi có ba anh trai, trong đó một người là bác sĩ."],
+    ["完全","wánquán","Adv","hoàn toàn","我完全同意你的看法。","Tôi hoàn toàn đồng ý với quan điểm của bạn."],
+    ["相當","xiāngdāng","Adv","khá, tương đối","今天相當熱。","Hôm nay khá nóng."],
+    ["一切","yīqiè","Det","tất cả, mọi thứ","希望你一切都好。","Mong mọi điều đều tốt đẹp với bạn."],
+    ["已","yǐ","Adv","đã (dạng văn viết của 已經)","火車已到站。","Tàu đã đến ga."],
+    ["尤其","yóuqí","Adv","đặc biệt là, nhất là","我喜歡水果，尤其是芒果。","Tôi thích hoa quả, nhất là xoài."],
+    ["越","yuè","Adv","càng (越…越…)","雨越下越大。","Mưa càng lúc càng to."],
+    ["整","zhěng","Det","cả, toàn bộ, nguyên (整天: cả ngày)","我昨天整天都在家。","Hôm qua tôi ở nhà cả ngày."],
+    ["正","zhèng","Adv","đang; vừa đúng","我正要出門，他就來了。","Tôi đang định ra ngoài thì anh ấy đến."],
+    ["只要","zhǐyào","Conj","chỉ cần","只要你努力，就會進步。","Chỉ cần bạn cố gắng thì sẽ tiến bộ."],
+    ["最好","zuìhǎo","Adv","tốt nhất là","你最好早一點去。","Tốt nhất bạn nên đi sớm một chút."],
+    ["同樣","tóngyàng","Adv / Vs-attr","giống nhau, như nhau","我們買了同樣的衣服。","Chúng tôi đã mua quần áo giống nhau."],
+    ["空","kōng","Vs","trống, rỗng","這個房間是空的。","Căn phòng này trống."],
+    ["空","kòng","Vs","rảnh, rảnh rỗi","我今天下午比較空。","Chiều nay tôi rảnh hơn."],
+    ["連","lián","Conj / Vst","ngay cả (連…都…); nối liền","這個字連老師都不認識。","Chữ này ngay cả thầy giáo cũng không biết."],
+    ["倍","bèi","N","lần, gấp (bội số)","這裡的房租比那裡貴一倍。","Tiền thuê nhà ở đây đắt gấp đôi ở kia."],
+    ["包括","bāokuò","Vst","bao gồm","這個價錢包括早餐。","Giá này bao gồm bữa sáng."],
+    ["步","bù","M","bước (lượng từ)","請往前走兩步。","Hãy bước lên phía trước hai bước."],
+    ["當時","dāngshí","N","lúc đó, khi ấy","當時我還是學生。","Lúc đó tôi vẫn còn là học sinh."],
+    ["等到","děngdào","Prep","đợi đến khi","等到雨停了，我們再走。","Đợi đến khi mưa tạnh rồi chúng ta hãy đi."],
+    ["煩","fán","Vs","phiền, bực bội","這件事讓我很煩。","Việc này khiến tôi rất bực bội."],
+    ["剛好","gānghǎo","Vs","vừa đúng, vừa vặn","這件衣服的大小剛好。","Cỡ chiếc áo này vừa vặn."],
+    ["或者","huòzhě","Conj","hoặc, hoặc là","你可以今天來，或者明天來。","Bạn có thể đến hôm nay, hoặc đến ngày mai."],
+    ["哇","wā","Ptc","ồ, oa (thán từ ngạc nhiên)","哇，這裡好漂亮！","Oa, ở đây đẹp quá!"],
+    ["需","xū","Vst","cần, cần phải","進去參觀需先買票。","Vào tham quan cần mua vé trước."],
+    ["須","xū","Adv","phải, cần phải","上課須帶課本。","Đi học phải mang sách giáo khoa."],
+    ["直接","zhíjiē","Vs","trực tiếp","你可以直接打電話給他。","Bạn có thể gọi điện trực tiếp cho anh ấy."],
+    ["總","zǒng","Adv","luôn luôn; rốt cuộc, dù sao cũng","他總說自己很忙。","Anh ấy luôn nói mình rất bận."],
+    ["泡","pào","V","ngâm; pha (trà, mì)","我給你泡一杯茶。","Để tôi pha cho bạn một cốc trà."],
+    ["且","qiě","Conj","và, hơn nữa (văn viết)","這個房間大且乾淨。","Căn phòng này rộng và sạch sẽ."],
+    ["比方","bǐfāng","N","ví dụ","請你打個比方。","Bạn hãy lấy một ví dụ đi."],
+    ["比方說","bǐfāngshūo","Vst","ví dụ như, chẳng hạn như","我喜歡運動，比方說打籃球。","Tôi thích thể thao, ví dụ như chơi bóng rổ."],
+    ["傳","chuán","V","truyền, chuyền; gửi (tin nhắn, tệp)","請把照片傳給我。","Hãy gửi ảnh cho tôi."],
+    ["另","lìng","Det","khác, riêng (另一個: một cái khác)","我們去另一家店看看吧。","Chúng ta sang một cửa hàng khác xem đi."],
+    ["另外","lìngwài","Conj / Det","ngoài ra; khác","我另外買了一本字典。","Ngoài ra tôi còn mua thêm một cuốn từ điển."],
+    ["左右","zuǒyòu","N / V","khoảng, trên dưới; chi phối","他大概三十歲左右。","Anh ấy khoảng trên dưới ba mươi tuổi."],
+    ["當","dāng","Prep","khi, lúc (當…的時候)","當我到家的時候，他已經睡了。","Khi tôi về đến nhà thì anh ấy đã ngủ rồi."],
+    ["類","lèi","M","loại (lượng từ)","我不喜歡看這類電影。","Tôi không thích xem loại phim này."],
+    ["樣","yàng","M","kiểu, loại, món (lượng từ)","桌上有四樣菜。","Trên bàn có bốn món."]
+  ]}]}];
+</script>
+
+<script>
+(() => {
+'use strict';
+
+/* ---------- tiện ích ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const bitsCount = b => (b & 1) + (b >> 1 & 1) + (b >> 2 & 1) + (b >> 3 & 1);
+const ICON = {
+  spk: '<path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a8.5 8.5 0 0 1 0 12"/>',
+  mic: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0"/><path d="M12 17.5V21"/>',
+  stop: '<rect x="7" y="7" width="10" height="10" rx="2"/>',
+  back: '<path d="M15 5l-7 7 7 7"/>',
+  next: '<path d="M9 5l7 7-7 7"/>',
+  check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  set: '<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',
+  x: '<path d="M6 6l12 12M18 6L6 18"/>',
+  list: '<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>',
+  cap: '<path d="M3 9l9-4 9 4-9 4-9-4z"/><path d="M7 11v5c3 2 7 2 10 0v-5"/>',
+  play: '<rect x="3" y="7" width="18" height="11" rx="4"/><path d="M8 11v3M6.5 12.5h3M15.5 11.5h.01M17.5 13.5h.01"/>',
+  again: '<path d="M4 12a8 8 0 1 0 2.6-5.9"/><path d="M4 4v4h4"/>'
+};
+const ico = n => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${ICON[n]}</svg>`;
+
+const POS = {
+  'N': 'danh từ', 'V': 'động từ', 'Vi': 'nội động từ', 'Vs': 'tính từ (động từ trạng thái)',
+  'Vst': 'động từ trạng thái có tân ngữ', 'Vp': 'động từ chỉ sự thay đổi', 'Vpt': 'động từ chỉ sự thay đổi có tân ngữ',
+  'Vaux': 'trợ động từ', 'V-sep': 'động từ ly hợp', 'Vs-sep': 'tính từ ly hợp', 'Vp-sep': 'động từ ly hợp chỉ sự thay đổi',
+  'Vs-pred': 'tính từ chỉ làm vị ngữ', 'Vs-attr': 'tính từ chỉ làm định ngữ',
+  'Adv': 'phó từ', 'M': 'lượng từ', 'Conj': 'liên từ', 'Prep': 'giới từ', 'Ptc': 'trợ từ', 'Det': 'từ hạn định'
+};
+const STEPS = ['Flashcard', 'Trắc nghiệm', 'Gõ từ', 'Phát âm'];
+
+/* ---------- chuẩn bị dữ liệu ---------- */
+const expand = alt => { const m = alt.match(/^(.*?)\((.*?)\)(.*)$/); return m ? [m[1] + m[2] + m[3], m[1] + m[3]] : [alt]; };
+const segsOf = m => m.toLowerCase().replace(/\(.*?\)/g, '').split(/[,;]/).map(s => s.trim()).filter(Boolean);
+LEVELS.forEach((L, li) => {
+  L.all = [];
+  L.topics.forEach((T, ti) => {
+    T.items = T.words.map(a => {
+      const forms = [...new Set(a[0].split('/').flatMap(expand))].filter(Boolean);
+      const w = { id: L.id + '|' + a[0] + '|' + a[1], li, ti, w: a[0], p: a[1].replace(/\//g, ' / '), pos: a[2], m: a[3], ex: a[4] || '', exVi: a[5] || '', forms, main: forms[0], segs: segsOf(a[3]) };
+      L.all.push(w);
+      return w;
+    });
+  });
+});
+
+/* ---------- lưu tiến độ ---------- */
+const KEY = 'tocfl-the-tu-v1';
+const DEF = { size: 20, shuffle: false, hidePinyin: false, autoSpeak: true, steps: [true, true, true, true] };
+let S = (() => {
+  let d = {};
+  try { d = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) {}
+  return { prog: d.prog || {}, best: d.best || {}, lv: d.lv === 1 ? 1 : 0, last: d.last || null, set: Object.assign({}, DEF, d.set || {}) };
+})();
+if (!Array.isArray(S.set.steps) || S.set.steps.length !== 4) S.set.steps = DEF.steps.slice();
+S.set.steps[0] = true;
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
+const bitsOf = w => S.prog[w.id] || 0;
+const isDone = w => bitsOf(w) === 15;
+
+function lessonsOf(T) {
+  const len = T.items.length, size = S.set.size;
+  const n = size ? Math.ceil(len / size) : 1;
+  const base = Math.floor(len / n), extra = len % n, out = [];
+  let at = 0;
+  for (let i = 0; i < n; i++) { const k = base + (i < extra ? 1 : 0); out.push(T.items.slice(at, at + k)); at += k; }
+  return out;
+}
+const pctOf = ws => ws.length ? ws.reduce((s, w) => s + bitsCount(bitsOf(w)), 0) / (ws.length * 4) : 0;
+
+/* ---------- đọc mẫu (Text-to-Speech) ---------- */
+const TTS = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+let voices = [];
+if (TTS) {
+  const lv = () => { voices = speechSynthesis.getVoices() || []; };
+  lv();
+  if (speechSynthesis.addEventListener) speechSynthesis.addEventListener('voiceschanged', lv);
+}
+function pickVoice() {
+  const n = v => (v.lang || '').replace('_', '-').toLowerCase();
+  return voices.find(v => n(v) === 'zh-tw') || voices.find(v => n(v).startsWith('zh-tw')) ||
+         voices.find(v => n(v) === 'zh-cn') || voices.find(v => n(v).startsWith('zh') && !/hk|yue/.test(n(v))) || null;
+}
+function speak(text) {
+  if (!TTS) return;
+  try {
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text), v = pickVoice();
+    if (v) { u.voice = v; u.lang = v.lang; } else u.lang = 'zh-TW';
+    u.rate = 0.8;
+    speechSynthesis.speak(u);
+  } catch (e) {}
+}
+
+/* ---------- nhận giọng nói / ghi âm ---------- */
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+let srOff = false;
+const canRec = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
+
+/* ---------- điều hướng ---------- */
+let route = { name: 'home' };
+let tab = 'hoc';
+let sess = null;
+let gameTimer = null;
+
+function parseHash() {
+  const m = location.hash.match(/^#\/(\d+)\/(\d+)\/(\d+)$/);
+  if (m) {
+    const li = +m[1], ti = +m[2], pi = +m[3];
+    const T = LEVELS[li] && LEVELS[li].topics[ti];
+    if (T && lessonsOf(T)[pi]) return { name: 'lesson', li, ti, pi };
+  }
+  return { name: 'home' };
+}
+function go(hash) { if (location.hash === hash) onRoute(); else location.hash = hash; }
+function onRoute() {
+  route = parseHash();
+  stopAll();
+  if (route.name === 'lesson') {
+    const key = route.li + '/' + route.ti + '/' + route.pi;
+    if (!sess || sess.key !== key) { startSession(route, key); tab = 'hoc'; }
+    S.lv = route.li; S.last = { li: route.li, ti: route.ti, pi: route.pi, size: S.set.size }; save();
+  } else sess = null;
+  render();
+  window.scrollTo(0, 0);
+}
+function stopAll() {
+  if (gameTimer) { clearInterval(gameTimer); gameTimer = null; }
+  if (TTS) try { speechSynthesis.cancel(); } catch (e) {}
+  if (sess && sess.sp) stopMic();
+}
+
+/* ---------- phiên học ---------- */
+function startSession(r, key) {
+  const T = LEVELS[r.li].topics[r.ti];
+  const words = lessonsOf(T)[r.pi];
+  sess = { key, li: r.li, ti: r.ti, pi: r.pi, T, base: words, words: S.set.shuffle ? shuffle(words) : words.slice(), idx: 0, step: 0, game: null };
+  const i = sess.words.findIndex(w => !isDone(w));
+  if (i < 0) sess.idx = -1; else enterWord(i);
+}
+const cur = () => sess.words[sess.idx];
+const enabled = i => !!S.set.steps[i];
+function firstStep(w) {
+  const b = bitsOf(w);
+  for (let i = 0; i < 4; i++) if (enabled(i) && !(b >> i & 1)) return i;
+  return 0;
+}
+function enterWord(i) { sess.idx = i; enterStep(firstStep(sess.words[i])); }
+function enterStep(st) {
+  if (sess.sp) stopMic();
+  sess.step = st;
+  sess.flipped = false; sess.anim = false;
+  sess.quiz = null; sess.ty = { state: 'idle', tries: 0 }; sess.sp = { busy: false, res: null, err: '', url: '' };
+  sess.spoken = false;
+}
+function advance() {
+  const w = cur();
+  let b = bitsOf(w) | (1 << sess.step);
+  S.prog[w.id] = b;
+  let nxt = -1;
+  for (let i = sess.step + 1; i < 4; i++) if (enabled(i) && !(b >> i & 1)) { nxt = i; break; }
+  if (nxt < 0) for (let i = 0; i < sess.step; i++) if (enabled(i) && !(b >> i & 1)) { nxt = i; break; }
+  if (nxt >= 0) { save(); enterStep(nxt); }
+  else { S.prog[w.id] = 15; save(); nextWord(); }
+  render(true);
+}
+function nextWord() {
+  const n = sess.words.length;
+  for (let k = 1; k <= n; k++) { const i = (sess.idx + k) % n; if (!isDone(sess.words[i])) { enterWord(i); return; } }
+  sess.idx = -1;
+}
+
+/* ---------- vẽ giao diện ---------- */
+const app = $('#app');
+const cells = (text, size) => `<div class="zis zis-${size}" style="--n:${[...text].length}" lang="zh-Hant">${[...text].map(c => `<span class="zi"><span>${esc(c)}</span></span>`).join('')}</div>`;
+const posHtml = w => {
+  const tags = w.pos ? w.pos.split(' / ') : [];
+  if (!tags.length) return `<span class="pos">cụm từ cố định</span>`;
+  return `<span class="pos">${tags.map(t => `<code>${esc(t)}</code>`).join('')} ${esc(tags.map(t => POS[t] || t).join(', '))}</span>`;
+};
+const altHtml = w => w.forms.length > 1 ? `<div class="alt">Cũng viết <span class="han" lang="zh-Hant">${w.forms.slice(1).map(esc).join('、')}</span></div>` : '';
+
+function render(keepScroll) {
+  if (route.name === 'home') app.innerHTML = homeHtml();
+  else app.innerHTML = lessonHtml();
+  if (route.name === 'lesson' && tab === 'hoc' && sess.idx >= 0) afterLearnRender();
+}
+
+function homeHtml() {
+  const L = LEVELS[S.lv];
+  const done = L.all.filter(isDone).length;
+  let resume = '';
+  if (S.last && S.last.size === S.set.size) {
+    const T = LEVELS[S.last.li] && LEVELS[S.last.li].topics[S.last.ti];
+    const ls = T && lessonsOf(T);
+    if (ls && ls[S.last.pi]) {
+      resume = `<button class="resume" data-act="open" data-l="${S.last.li}/${S.last.ti}/${S.last.pi}">
+        <span><b>Học tiếp bài đang dở</b><span>${esc(LEVELS[S.last.li].name)}, ${esc(T.vi)}${ls.length > 1 ? ', bài ' + (S.last.pi + 1) : ''}</span></span>${ico('next')}</button>`;
+    }
+  }
+  return `
+  <header class="home-top">
+    <div class="brand">
+      ${cells('生詞卡', 'sm')}
+      <h1>Thẻ từ TOCFL</h1>
+      <p>Mỗi từ đi qua 4 bước: lật thẻ, chọn nghĩa, gõ chữ Hán, đọc to.</p>
+    </div>
+    <button class="iconbtn" data-act="settings" aria-label="Cài đặt">${ico('set')}</button>
+  </header>
+  <div class="seg lvl" role="tablist" aria-label="Chọn cấp độ">
+    ${LEVELS.map((x, i) => `<button role="tab" aria-selected="${i === S.lv}" data-act="level" data-i="${i}"><span class="han" lang="zh-Hant">${esc(x.zh)}</span><small>${esc(x.name)}, ${x.all.length} từ</small></button>`).join('')}
+  </div>
+  ${resume}
+  <div class="lvl-sum"><span>Đã học xong <b>${done}</b> trên ${L.all.length} từ</span><span>${Math.round(pctOf(L.all) * 100)}%</span></div>
+  <div class="bar"><i style="width:${pctOf(L.all) * 100}%"></i></div>
+  <ul class="topics">
+    ${L.topics.map((T, ti) => {
+      const ls = lessonsOf(T);
+      return `<li class="topic">
+        <div class="topic-h"><h2>${esc(T.vi)}<span class="han" lang="zh-Hant">${esc(T.zh)}</span></h2><em>${T.items.length} từ</em></div>
+        <div class="bar"><i style="width:${pctOf(T.items) * 100}%"></i></div>
+        <div class="lessons">
+          ${ls.map((ws, pi) => {
+            const p = pctOf(ws), cls = p >= 1 ? 'done' : p > 0 ? 'part' : '';
+            return `<button class="lesson ${cls}" style="--p:${Math.round(p * 100)}%" data-act="open" data-l="${S.lv}/${ti}/${pi}" aria-label="${ls.length > 1 ? 'Bài ' + (pi + 1) : 'Vào học'}, ${ws.length} từ, đã xong ${Math.round(p * 100)}%">
+              <span class="dot">${p >= 1 ? ico('check') : ''}</span>${ls.length > 1 ? 'Bài ' + (pi + 1) : 'Vào học'} <small>${ws.length} từ</small></button>`;
+          }).join('')}
+        </div>
+      </li>`;
+    }).join('')}
+  </ul>
+  <p class="foot">Tiến độ được lưu ngay trên trình duyệt của thiết bị này.</p>`;
+}
+
+function lessonHtml() {
+  const L = LEVELS[sess.li], T = sess.T, nParts = lessonsOf(T).length;
+  const tabs = [['xem', 'Xem từ', 'list'], ['hoc', 'Học', 'cap'], ['choi', 'Chơi', 'play']];
+  let body = '';
+  if (tab === 'xem') body = listHtml();
+  else if (tab === 'choi') body = gameHtml();
+  else body = learnHtml();
+  return `
+  <header class="lhead">
+    <button class="back" data-act="home">${ico('back')} Bài học</button>
+    <div class="lmeta"><small>${esc(L.name)}${nParts > 1 ? ', bài ' + (sess.pi + 1) : ''} · ${sess.words.length} từ</small><b>${esc(T.vi)}</b></div>
+  </header>
+  <div class="seg tabs" role="tablist">
+    ${tabs.map(t => `<button role="tab" aria-selected="${tab === t[0]}" data-act="tab" data-t="${t[0]}">${ico(t[2])} ${t[1]}</button>`).join('')}
+  </div>
+  ${body}`;
+}
+
+/* ----- tab Học ----- */
+function learnHtml() {
+  const n = sess.words.length, pct = Math.round(pctOf(sess.words) * 100);
+  if (sess.idx < 0) return finishHtml(pct);
+  const w = cur(), b = bitsOf(w), en = S.set.steps.filter(Boolean).length;
+  const stepper = `<div class="steprow"><ol class="steps">
+    ${STEPS.map((s, i) => {
+      const cls = !enabled(i) ? 'is-off' : i === sess.step ? 'is-cur' : (b >> i & 1) ? 'is-done' : '';
+      return `<li><button class="${cls}" data-act="step" data-i="${i}" ${enabled(i) ? '' : 'disabled'} ${i === sess.step ? 'aria-current="step"' : ''}>
+        <span class="n">${(b >> i & 1) && i !== sess.step ? ico('check') : i + 1}</span>${s}</button></li>`;
+    }).join('')}
+  </ol><button class="iconbtn" data-act="settings" aria-label="Cài đặt các bước học">${ico('set')}</button></div>`;
+  const where = `<div class="where">
+    <span class="wnav"><button data-act="prev" aria-label="Từ trước">${ico('back')}</button><span>Từ <b>${sess.idx + 1}/${n}</b>, bước <b>${sess.step + 1}/4</b> ${STEPS[sess.step]}</span><button data-act="nextw" aria-label="Từ sau">${ico('next')}</button></span>
+    <span>${pct}%</span></div>
+  <div class="bar"><i style="width:${pct}%"></i></div>`;
+  const card = [fcHtml, quizHtml, typeHtml, speakHtml][sess.step](w);
+  return stepper + where + card + `<p class="under">Hoàn thành đủ ${en} bước để chuyển sang từ tiếp theo.</p>`;
+}
+
+function fcHtml(w) {
+  const spk = TTS ? `<button class="spk" data-act="say" aria-label="Nghe phát âm">${ico('spk')}</button>` : '';
+  if (!sess.flipped) {
+    return `<div class="card fc ${sess.anim ? 'flip' : ''}" data-act="flip" role="button" tabindex="0" aria-label="Lật thẻ để xem nghĩa">
+      ${spk}
+      ${cells(w.main, 'lg')}
+      ${S.set.hidePinyin ? '' : `<div class="pinyin">${esc(w.p)}</div>`}
+      ${altHtml(w)}
+      <div class="hint">Nhấn vào thẻ để xem nghĩa</div>
+    </div>`;
+  }
+  const ex = exHtml(w);
+  return `<div class="card fc ${sess.anim ? 'flip' : ''}" data-act="flip" role="button" tabindex="0" aria-label="Lật lại mặt trước">
+    ${spk}
+    <div class="mean ${w.m.length > 30 ? 'long' : ''}">${esc(w.m)}</div>
+    <div class="pinyin">${esc(w.p)}</div>
+    ${cells(w.main, 'sm')}
+    ${posHtml(w)}
+    ${altHtml(w)}
+    ${ex}
+    <div class="row">
+      <button class="btn soft" data-act="known">${ico('check')} Đã thuộc</button>
+      <button class="btn" data-act="adv">Tiếp ${ico('next')}</button>
+    </div>
+  </div>`;
+}
+
+function exHtml(w) {
+  if (!w.ex) return '';
+  const f = w.forms.slice().sort((a, b) => b.length - a.length).find(x => w.ex.includes(x));
+  let zh = esc(w.ex);
+  if (f) { const i = w.ex.indexOf(f); zh = esc(w.ex.slice(0, i)) + '<mark>' + esc(f) + '</mark>' + esc(w.ex.slice(i + f.length)); }
+  return `<div class="ex"><div class="han" lang="zh-Hant">${zh}</div>${w.exVi ? `<div class="exvi">${esc(w.exVi)}</div>` : ''}${TTS ? `<button class="pill" data-act="sayex">${ico('spk')} Nghe câu ví dụ</button>` : ''}</div>`;
+}
+
+function makeQuiz(w) {
+  const pool = LEVELS[w.li].all.filter(x => x !== w && x.main !== w.main && !x.segs.some(s => w.segs.includes(s)));
+  const tag = (w.pos.split(' / ')[0] || '').replace(/-.*/, '').slice(0, 2);
+  const same = pool.filter(x => (x.pos.split(' / ')[0] || '').replace(/-.*/, '').slice(0, 2) === tag);
+  const picked = [];
+  for (const x of shuffle(same).concat(shuffle(pool))) {
+    if (picked.length === 3) break;
+    if (picked.includes(x) || picked.some(y => y.segs.some(s => x.segs.includes(s)))) continue;
+    picked.push(x);
+  }
+  return { opts: shuffle([w, ...picked]), wrong: new Set(), right: false };
+}
+function quizHtml(w) {
+  if (!sess.quiz) sess.quiz = makeQuiz(w);
+  const q = sess.quiz;
+  return `<div class="card q">
+    <div class="hint">Chọn nghĩa đúng của từ dưới đây</div>
+    ${cells(w.main, 'md')}
+    <div class="pinyin">${esc(w.p)}</div>
+    <div class="opts">
+      ${q.opts.map((o, i) => {
+        const cls = q.right && o === w ? 'right' : q.wrong.has(i) ? 'wrong' : '';
+        return `<button class="opt ${cls}" data-act="pick" data-i="${i}" ${q.right || q.wrong.has(i) ? 'disabled' : ''}><i>${'ABCD'[i]}</i><span>${esc(o.m)}</span></button>`;
+      }).join('')}
+    </div>
+    <div class="msg ${q.right ? 'ok' : q.wrong.size ? 'bad' : ''}" aria-live="polite">${q.right ? '' : q.wrong.size ? 'Chưa đúng, chọn lại nhé.' : ''}</div>
+    ${q.right ? `<button class="btn ok" data-act="adv" id="go" style="width:100%">Chính xác, tiếp tục</button>` : ''}
+  </div>`;
+}
+
+function typeHtml(w) {
+  return `<div class="card q">
+    <div class="hint">Gõ chữ Hán theo pinyin và nghĩa</div>
+    <div class="pinyin" style="font-size:26px">${esc(w.p)}</div>
+    <div style="font-size:19px;font-weight:500">${esc(w.m)}</div>
+    ${TTS ? `<button class="pill" data-act="say">${ico('spk')} Nghe lại</button>` : ''}
+    <input class="field" id="ans" type="text" lang="zh-Hant" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Nhập Hán tự…" aria-label="Nhập chữ Hán">
+    <div class="msg" id="tmsg" aria-live="polite"></div>
+    <div class="row" style="margin-top:4px">
+      <button class="btn" data-act="check" id="chk">Kiểm tra</button>
+      <button class="btn ghost" data-act="skip" id="skp">Bỏ qua</button>
+    </div>
+  </div>`;
+}
+function checkTyped() {
+  const w = cur(), inp = $('#ans'), msg = $('#tmsg'), t = sess.ty;
+  if (t.state === 'right' || t.state === 'skipped') { advance(); return; }
+  const v = inp.value.normalize('NFC').replace(/[\s　]/g, '');
+  if (!v) { inp.focus(); return; }
+  if (w.forms.includes(v) || v === w.w) {
+    t.state = 'right';
+    inp.classList.remove('wrong'); inp.classList.add('right'); inp.readOnly = true;
+    msg.className = 'msg ok'; msg.textContent = 'Chính xác!';
+    $('#chk').textContent = 'Tiếp tục'; $('#chk').classList.add('ok'); $('#skp').hidden = true;
+    $('#chk').focus();
+  } else {
+    t.tries++;
+    inp.classList.remove('wrong'); void inp.offsetWidth; inp.classList.add('wrong');
+    msg.className = 'msg bad';
+    const n = [...w.main].length;
+    msg.textContent = t.tries >= 2 ? `Chưa đúng. Gợi ý: từ có ${n} chữ${n > 1 ? ', bắt đầu bằng ' + [...w.main][0] : ''}.` : 'Chưa đúng, thử lại hoặc bấm Bỏ qua để xem đáp án.';
+    inp.focus(); inp.select();
+  }
+}
+function skipTyped() {
+  const w = cur(), inp = $('#ans'), msg = $('#tmsg');
+  sess.ty.state = 'skipped';
+  inp.value = w.main; inp.readOnly = true; inp.classList.remove('wrong');
+  msg.className = 'msg'; msg.textContent = 'Đáp án ở trên. Nhìn kỹ từng nét rồi đi tiếp.';
+  $('#chk').textContent = 'Tiếp tục'; $('#skp').hidden = true;
+}
+
+function speakHtml(w) {
+  const sp = sess.sp;
+  let status = 'Bấm micro rồi đọc to từ này.';
+  let cls = '';
+  if (sp.busy) status = sp.mode === 'rec' ? 'Đang ghi âm trong 4 giây, hãy đọc to…' : 'Đang nghe, hãy đọc to…';
+  else if (sp.res) {
+    if (sp.res.ok) { status = `Máy nghe được 「${esc(sp.res.heard)}」, khớp với từ mẫu.`; cls = 'ok'; }
+    else { status = `Máy nghe được 「${esc(sp.res.heard)}」, chưa khớp. Nghe mẫu rồi đọc chậm và rõ hơn.`; cls = 'bad'; }
+  } else if (sp.url) status = 'Đã ghi âm xong. Nghe lại rồi so với giọng mẫu.';
+  else if (sp.err === 'denied') { status = 'Trình duyệt chưa được cấp quyền micro. Hãy cho phép micro rồi bấm lại.'; cls = 'bad'; }
+  else if (sp.err === 'silent') { status = 'Chưa nghe thấy gì. Bấm micro và đọc to hơn.'; cls = 'bad'; }
+  else if (sp.err === 'fallback') status = 'Trình duyệt này không chấm được giọng nói. Bấm micro lần nữa để ghi âm rồi tự nghe lại.';
+  else if (sp.err === 'none') status = 'Trình duyệt này không dùng được micro. Hãy nghe mẫu và đọc to theo.';
+  else if (sp.err) { status = 'Micro gặp trục trặc, thử bấm lại.'; cls = 'bad'; }
+  return `<div class="card q">
+    <div class="hint">Nghe mẫu, sau đó bấm micro và nói to</div>
+    ${cells(w.main, 'md')}
+    <div class="pinyin">${esc(w.p)}</div>
+    <div class="voice">
+      ${TTS ? `<button class="spk" data-act="say" aria-label="Nghe giọng mẫu">${ico('spk')}</button>` : ''}
+      <button class="mic ${sp.busy ? 'live' : ''}" data-act="mic" aria-label="${sp.busy ? 'Dừng' : 'Bấm để nói'}">${ico(sp.busy ? 'stop' : 'mic')}</button>
+    </div>
+    <div class="msg ${cls}" aria-live="polite">${status}</div>
+    ${sp.url && !sp.busy ? `<button class="pill" data-act="replay">${ico('again')} Nghe lại bản ghi của tôi</button>` : ''}
+    <div style="font-size:18px;font-weight:500">${esc(w.m)}</div>
+    <button class="btn" data-act="adv" style="width:100%;flex:none;margin-top:6px">Hoàn tất từ này ${ico('next')}</button>
+  </div>`;
+}
+function stopMic() {
+  const sp = sess.sp;
+  if (!sp) return;
+  try { if (sp.rec) sp.rec.abort ? sp.rec.abort() : sp.rec.stop(); } catch (e) {}
+  try { if (sp.mr && sp.mr.state !== 'inactive') sp.mr.stop(); } catch (e) {}
+  if (sp.timer) clearTimeout(sp.timer);
+}
+function micPress() {
+  const w = cur(), sp = sess.sp, mine = sess.sp;
+  if (sp.busy) { try { if (sp.rec) sp.rec.stop(); if (sp.mr && sp.mr.state !== 'inactive') sp.mr.stop(); } catch (e) {} return; }
+  if (TTS) try { speechSynthesis.cancel(); } catch (e) {}
+  sp.res = null; sp.err = '';
+  const redraw = () => { if (sess && sess.sp === mine && tab === 'hoc') render(true); };
+  if (SR && !srOff) {
+    let got = false;
+    const r = new SR();
+    r.lang = 'zh-TW'; r.interimResults = false; r.maxAlternatives = 5;
+    r.onresult = e => {
+      got = true;
+      const alts = Array.from(e.results[0]).map(a => a.transcript.replace(/[\s，。！？、,.!?]/g, ''));
+      const ok = alts.some(a => w.forms.some(f => a === f || a.includes(f)));
+      sp.res = { heard: (ok ? alts.find(a => w.forms.some(f => a.includes(f))) : alts[0]) || '', ok };
+    };
+    r.onerror = e => {
+      if (e.error === 'not-allowed') sp.err = 'denied';
+      else if (e.error === 'no-speech' || e.error === 'aborted') sp.err = 'silent';
+      else { srOff = true; sp.err = 'x'; }
+    };
+    r.onend = () => { sp.busy = false; sp.rec = null; if (sp.timer) clearTimeout(sp.timer); if (!got && !sp.err) sp.err = 'silent'; if (srOff) sp.err = canRec ? 'fallback' : 'none'; redraw(); };
+    try { r.start(); sp.rec = r; sp.busy = true; sp.mode = 'sr'; sp.timer = setTimeout(() => { try { r.stop(); } catch (e) {} }, 7000); }
+    catch (e) { srOff = true; }
+    if (sp.busy) { redraw(); return; }
+  }
+  if (canRec) {
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+      const chunks = [], mr = new MediaRecorder(stream);
+      mr.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
+      mr.onstop = () => {
+        stream.getTracks().forEach(t => t.stop());
+        if (sp.timer) clearTimeout(sp.timer);
+        sp.busy = false; sp.mr = null;
+        if (chunks.length) { if (sp.url) URL.revokeObjectURL(sp.url); sp.url = URL.createObjectURL(new Blob(chunks, { type: mr.mimeType || 'audio/webm' })); playRec(); }
+        else sp.err = 'silent';
+        redraw();
+      };
+      mr.start(); sp.mr = mr; sp.busy = true; sp.mode = 'rec';
+      sp.timer = setTimeout(() => { try { if (mr.state !== 'inactive') mr.stop(); } catch (e) {} }, 4000);
+      redraw();
+    }).catch(() => { sp.err = 'denied'; redraw(); });
+    return;
+  }
+  sp.err = 'none'; redraw();
+}
+function playRec() { const sp = sess.sp; if (sp && sp.url) { try { new Audio(sp.url).play().catch(() => {}); } catch (e) {} } }
+
+function finishHtml(pct) {
+  const T = sess.T, ls = lessonsOf(T);
+  let nextL = '';
+  if (ls[sess.pi + 1]) nextL = `${sess.li}/${sess.ti}/${sess.pi + 1}`;
+  else if (LEVELS[sess.li].topics[sess.ti + 1]) nextL = `${sess.li}/${sess.ti + 1}/0`;
+  return `<div class="card fin">
+    ${cells('完成', 'md')}
+    <h2>Xong bài này rồi</h2>
+    <p>Bạn đã đi hết ${sess.words.length} từ của bài, tiến độ ${pct}%.</p>
+    <div class="row">
+      ${nextL ? `<button class="btn" data-act="open" data-l="${nextL}">Sang bài tiếp theo ${ico('next')}</button>` : ''}
+      <button class="btn line" data-act="tab" data-t="choi">${ico('play')} Chơi ghép thẻ với bài này</button>
+      <button class="btn line" data-act="redo">${ico('again')} Học lại bài này từ đầu</button>
+    </div>
+  </div>`;
+}
+
+function afterLearnRender() {
+  const w = cur();
+  if (sess.step === 0 && !sess.flipped && S.set.autoSpeak && !sess.spoken) { sess.spoken = true; speak(w.main); }
+  if (sess.step === 2) {
+    const inp = $('#ans');
+    if (inp) {
+      inp.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.isComposing && e.keyCode !== 229) { e.preventDefault(); checkTyped(); } });
+      inp.addEventListener('input', () => { inp.classList.remove('wrong'); });
+      if (matchMedia('(hover:hover) and (pointer:fine)').matches) inp.focus();
+    }
+  }
+}
+
+/* ----- tab Xem từ ----- */
+function listHtml() {
+  return `<ul class="list">
+    ${sess.base.map((w, i) => {
+      const b = bitsOf(w), st = b === 15 ? 'full' : b ? 'half' : '';
+      return `<li><button class="wrow" data-act="sayrow" data-i="${i}" aria-label="${esc(w.main)}, ${esc(w.m)}. Nhấn để nghe">
+        <span class="w" lang="zh-Hant">${esc(w.main)}</span>
+        <span><span class="p">${esc(w.p)}</span><span class="m">${esc(w.m)}</span><span class="t">${esc(w.pos || 'cụm từ')}${w.forms.length > 1 ? ' · cũng viết ' + esc(w.forms.slice(1).join('、')) : ''}</span></span>
+        <span class="st ${st}"></span></button></li>`;
+    }).join('')}
+  </ul>
+  <div class="legend"><span><i></i> chưa học</span><span><i style="background:var(--grid-dash)"></i> đang học</span><span><i style="background:var(--ok);border-color:var(--ok)"></i> đã xong</span><span>Nhấn vào một từ để nghe đọc.</span></div>`;
+}
+
+/* ----- tab Chơi: ghép chữ Hán với nghĩa ----- */
+const PER = 5;
+function newGame() {
+  sess.game = { queue: shuffle(sess.base), left: [], right: [], sel: null, miss: 0, t0: Date.now(), end: 0, gone: new Set(), bad: null, total: sess.base.length, cleared: 0 };
+  nextBatch();
+}
+function nextBatch() {
+  const g = sess.game, batch = [], rest = [];
+  for (const w of g.queue) {
+    if (batch.length < PER && !batch.some(x => x.main === w.main || x.segs.some(s => w.segs.includes(s)))) batch.push(w); else rest.push(w);
+  }
+  g.queue = rest; g.left = shuffle(batch); g.right = shuffle(batch); g.gone = new Set(); g.sel = null;
+}
+const fmt = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+function gameHtml() {
+  if (!sess.game) newGame();
+  const g = sess.game;
+  if (g.end) {
+    const secs = Math.round((g.end - g.t0) / 1000), best = S.best[sess.key + '@' + S.set.size];
+    return `<div class="card fin">
+      ${cells('過關', 'md')}
+      <h2>Ghép xong ${g.total} từ</h2>
+      <p>Thời gian ${fmt(secs)}, ghép sai ${g.miss} lần.${best ? ' Kỷ lục của bài: ' + fmt(best) + '.' : ''}</p>
+      <div class="row"><button class="btn" data-act="regame">${ico('again')} Chơi lại</button><button class="btn line" data-act="tab" data-t="hoc">Quay lại học</button></div>
+    </div>`;
+  }
+  if (!gameTimer) gameTimer = setInterval(() => { const el = $('#gt'); if (el && sess && sess.game && !sess.game.end) el.textContent = fmt((Date.now() - sess.game.t0) / 1000); }, 500);
+  const tile = (w, side) => {
+    const id = side + ':' + w.id;
+    const cls = [side === 'L' ? 'h' : '', g.gone.has(w.id) ? 'gone' : '', g.sel === id ? 'sel' : '', g.bad && g.bad.includes(id) ? 'no' : ''].join(' ');
+    return `<button class="tile ${cls}" data-act="tile" data-id="${esc(id)}" ${side === 'L' ? 'lang="zh-Hant"' : ''}>${esc(side === 'L' ? w.main : w.m)}</button>`;
+  };
+  return `<div class="ghead"><span>Ghép chữ Hán với nghĩa. Đã ghép <b>${g.cleared}/${g.total}</b></span><span>Sai <b>${g.miss}</b> · <b id="gt">${fmt((Date.now() - g.t0) / 1000)}</b></span></div>
+  <div class="board"><div class="col">${g.left.map(w => tile(w, 'L')).join('')}</div><div class="col">${g.right.map(w => tile(w, 'R')).join('')}</div></div>`;
+}
+function tilePress(id) {
+  const g = sess.game;
+  g.bad = null;
+  if (!g.sel || g.sel[0] === id[0]) { g.sel = g.sel === id ? null : id; render(true); return; }
+  const a = g.sel.slice(2), b = id.slice(2);
+  if (a === b) {
+    g.gone.add(a); g.cleared++; g.sel = null;
+    const w = sess.base.find(x => x.id === a); if (w) speak(w.main);
+    if (g.gone.size === g.left.length) {
+      if (g.queue.length) nextBatch();
+      else {
+        g.end = Date.now();
+        const secs = Math.round((g.end - g.t0) / 1000), k = sess.key + '@' + S.set.size;
+        if (!S.best[k] || secs < S.best[k]) { S.best[k] = secs; save(); }
+        if (gameTimer) { clearInterval(gameTimer); gameTimer = null; }
+      }
+    }
+  } else { g.miss++; g.bad = [g.sel, id]; g.sel = null; }
+  render(true);
+}
+
+/* ----- cài đặt ----- */
+const sheet = $('#sheet');
+let wipeArmed = false;
+function openSettings() { wipeArmed = false; drawSettings(); }
+function closeSettings() { sheet.innerHTML = ''; }
+function drawSettings() {
+  const st = S.set;
+  const sw = (key, label, sub, checked, dis) => `<label class="sw"><span>${label}${sub ? `<small>${sub}</small>` : ''}</span><input type="checkbox" data-set="${key}" ${checked ? 'checked' : ''} ${dis ? 'disabled' : ''}></label>`;
+  sheet.innerHTML = `<div class="sheet" data-act="closeset"><div class="sheet-in" role="dialog" aria-modal="true" aria-label="Cài đặt">
+    <div class="sheet-h"><h2>Cài đặt</h2><button class="iconbtn" data-act="closeset" data-x="1" aria-label="Đóng">${ico('x')}</button></div>
+    <div class="set"><b>Số từ mỗi bài</b><p>Chủ đề dài được chia đều thành nhiều bài. Tiến độ từng từ vẫn giữ nguyên khi đổi.</p>
+      <div class="seg">${[[10, '10'], [15, '15'], [20, '20'], [0, 'Cả chủ đề']].map(o => `<button aria-pressed="${st.size === o[0]}" data-act="size" data-v="${o[0]}">${o[1]}</button>`).join('')}</div></div>
+    <div class="set"><b>Các bước học cho mỗi từ</b>
+      ${STEPS.map((s, i) => sw('step' + i, (i + 1) + '. ' + s, i === 0 ? 'Luôn bật' : i === 3 ? 'Cần micro, chạy tốt nhất trên Chrome và Safari' : '', st.steps[i], i === 0)).join('')}</div>
+    <div class="set"><b>Thẻ từ</b>
+      ${sw('hidePinyin', 'Ẩn pinyin ở mặt trước', 'Tự nhớ cách đọc trước khi lật thẻ', st.hidePinyin)}
+      ${sw('autoSpeak', 'Tự đọc từ khi mở thẻ', '', st.autoSpeak)}
+      ${sw('shuffle', 'Trộn thứ tự từ trong bài', 'Áp dụng từ lần vào bài kế tiếp', st.shuffle)}</div>
+    <div class="set"><b>Tiến độ</b><p>Xoá toàn bộ tiến độ học và kỷ lục trò chơi trên thiết bị này.</p>
+      <button class="danger" data-act="wipe">${wipeArmed ? 'Bấm lần nữa để xoá hẳn' : 'Xoá tiến độ'}</button></div>
+  </div></div>`;
+}
+sheet.addEventListener('change', e => {
+  const k = e.target.dataset.set; if (!k) return;
+  if (k.startsWith('step')) S.set.steps[+k.slice(4)] = e.target.checked; else S.set[k] = e.target.checked;
+  S.set.steps[0] = true; save();
+  if (sess && sess.idx >= 0 && !enabled(sess.step)) enterStep(firstStep(cur()));
+  render(true);
+});
+sheet.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]'); if (!b) return;
+  const act = b.dataset.act;
+  if (act === 'closeset') { if (e.target === b || b.dataset.x) closeSettings(); }
+  else if (act === 'size') {
+    S.set.size = +b.dataset.v; save();
+    if (route.name === 'lesson') { closeSettings(); sess = null; go(''); if (location.hash) location.hash = ''; }
+    else { drawSettings(); render(true); }
+  }
+  else if (act === 'wipe') {
+    if (!wipeArmed) { wipeArmed = true; drawSettings(); return; }
+    S.prog = {}; S.best = {}; S.last = null; save(); wipeArmed = false; closeSettings();
+    if (route.name === 'lesson') { sess = null; onRoute(); } else render();
+  }
+});
+
+/* ---------- xử lý thao tác ---------- */
+app.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]'); if (!b) return;
+  const act = b.dataset.act;
+  switch (act) {
+    case 'settings': openSettings(); break;
+    case 'level': S.lv = +b.dataset.i; save(); render(); break;
+    case 'open': go('#/' + b.dataset.l); break;
+    case 'home': go(''); if (location.hash) location.hash = ''; break;
+    case 'tab':
+      stopAll(); tab = b.dataset.t;
+      if (tab === 'hoc' && sess.idx >= 0) enterStep(sess.step);
+      render(); break;
+    case 'step': enterStep(+b.dataset.i); render(true); break;
+    case 'prev': case 'nextw': {
+      const n = sess.words.length; enterWord((sess.idx + (act === 'prev' ? n - 1 : 1)) % n); render(true); break;
+    }
+    case 'say': e.stopPropagation(); speak(cur().main); break;
+    case 'sayex': e.stopPropagation(); speak(cur().ex); break;
+    case 'flip': sess.flipped = !sess.flipped; sess.anim = true; render(true); break;
+    case 'known': S.prog[cur().id] = 15; save(); nextWord(); render(true); break;
+    case 'adv': advance(); break;
+    case 'pick': {
+      const q = sess.quiz, i = +b.dataset.i;
+      if (q.opts[i] === cur()) q.right = true; else q.wrong.add(i);
+      render(true);
+      const goBtn = $('#go'); if (goBtn) goBtn.focus({ preventScroll: false });
+      break;
+    }
+    case 'check': checkTyped(); break;
+    case 'skip': skipTyped(); break;
+    case 'mic': micPress(); break;
+    case 'replay': playRec(); break;
+    case 'redo': sess.words.forEach(w => { delete S.prog[w.id]; }); save(); sess = null; onRoute(); break;
+    case 'sayrow': speak(sess.base[+b.dataset.i].main); break;
+    case 'tile': tilePress(b.dataset.id); break;
+    case 'regame': newGame(); render(true); break;
+  }
+});
+app.addEventListener('keydown', e => {
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.fc[data-act="flip"]')) { e.preventDefault(); e.target.click(); }
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && sheet.innerHTML) closeSettings(); });
+window.addEventListener('hashchange', onRoute);
+onRoute();
+})();
+</script>
+</body>
+</html>
